@@ -1,0 +1,21 @@
+DEMARRAGE PROJET WEB
+
+npm install -g vue-cli
+cd workspace/scenso
+vue init webpack web
+cd web
+npm install
+npm run lint -- --fix
+npm run dev
+
+git init
+git add -A
+git commit --amend -m 'Premier commit
+
+Commandes:
+vue init webpack web
+cd web
+npm install
+npm run lint -- --fix
+npm run dev
+'
