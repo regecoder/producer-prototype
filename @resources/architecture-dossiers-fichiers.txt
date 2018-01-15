@@ -1,0 +1,76 @@
+src/
+    assets/
+    components/
+    filters/
+    mixins/
+    router/
+    store/
+    views/
+    api/
+    modules/
+        index.js
+        router.js
+        store.js
+        moduleA/
+            index.js
+            router.js
+            assets/
+            components/
+            filters/
+            mixins/
+            (router/)
+            store/
+            views/
+            api/
+        moduleB/
+            index.js
+            router.js
+            assets/
+            components/
+            filters/
+            mixins/
+            (router/)
+            store/
+            views/
+            api/
+
+
+// modules/router.js
+import { router as moduleA } from './moduleA'
+import { router as moduleB } from './moduleB'
+
+export default [ ...moduleA, ...moduleB ]
+
+// modules/store.js
+import { store as moduleA } from './moduleA'
+import { store as moduleB } from './moduleB'
+
+export default { moduleA, moduleB }
+
+// modules/moduleA/index.js
+export { default as router } from './router'
+export { default as store } from './store'
+
+// modules/index.js
+export { default as router } from './router'
+export { default as store } from './store'
+
+
+-------------------------------------------------------------------------------
+
+vuex
+
+├── index.html
+├── main.js
+├── api
+│   └── ... # abstractions for making API requests
+├── components
+│   ├── App.vue
+│   └── ...
+└── store
+    ├── index.js          # where we assemble modules and export the store
+    ├── actions.js        # root actions
+    ├── mutations.js      # root mutations
+    └── modules
+        ├── cart.js       # cart module
+        └── products.js   # products module
