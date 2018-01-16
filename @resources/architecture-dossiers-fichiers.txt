@@ -58,6 +58,49 @@ export { default as store } from './store'
 
 -------------------------------------------------------------------------------
 
+
+    app/
+    moduleA/
+        components/
+        vuex/
+        index.js
+        routes.js
+    moduleB/
+        components/
+        vuex/
+        index.js
+        routes.js
+    index.js
+    routers.js
+    vuex.js
+    Main.vue
+    router/
+    vuex/
+    components/ -> shared
+    main.js
+
+// app/routes.js
+import { routes as moduleA } from './moduleA'
+import { routes as moduleB } from './moduleB'
+
+export default [ ...moduleA, ...moduleB ]
+
+// app/vuex.js
+import { vuex as moduleA } from './moduleA'
+import { vuex as moduleB } from './moduleB'
+
+export default { moduleA, moduleB }
+
+// app/moduleA/index.js
+export { default as routes } from './routes'
+export { default as vuex } from './vuex'
+
+// app/index.js
+export { default as routes } from './routes'
+export { default as vuex } from './vuex'
+
+-------------------------------------------------------------------------------
+
 vuex
 
 ├── index.html
@@ -74,3 +117,9 @@ vuex
     └── modules
         ├── cart.js       # cart module
         └── products.js   # products module
+
+-------------------------------------------------------------------------------
+
+core
+shared
+

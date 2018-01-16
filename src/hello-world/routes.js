@@ -3,7 +3,7 @@ import HelloWorld from './components/HelloWorld';
 export default [
   {
     path: '/',
-    name: 'HelloWorld',
+    name: 'helloWorld',
     component: HelloWorld
   }
 ];

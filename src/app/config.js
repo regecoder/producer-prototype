@@ -1,4 +1,4 @@
-const envConfig = require(`./${process.env.NODE_ENV}`);
+const envConfig = require(`./config.${process.env.NODE_ENV}`);
 
 const config = Object.assign({}, envConfig);
 

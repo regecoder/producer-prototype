@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { config } from '@/modules';
+import config from '@/config';
 
 export default {
   name: 'HelloWorld',
