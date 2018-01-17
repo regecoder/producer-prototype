@@ -4,7 +4,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import App from './app/components/App';
+import App from './core/components/App';
 import routes from './routes';
 
 Vue.use(Router);

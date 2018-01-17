@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',
-      domain: config.app.domain
+      domain: config.core.domain
     };
   }
 };

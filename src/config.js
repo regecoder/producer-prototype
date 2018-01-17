@@ -1,7 +1,7 @@
-import { config as app } from './app';
+import { config as core } from './core';
 import { config as auth0 } from './auth0';
 
 export default {
-  app,
+  core,
   auth0
 };
