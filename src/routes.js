@@ -1,3 +1,15 @@
-import { routes } from './hello-world';
+import { routes as helloWorldRoutes } from './hello-world';
+import { routes as coreRoutes } from './core';
 
-export default routes;
+const componentsRoutes = [
+  helloWorldRoutes,
+  coreRoutes
+];
+
+// eslint-disable-next-line import/no-mutable-exports
+let allRoutes = [];
+componentsRoutes.forEach((routes) => {
+  allRoutes = allRoutes.concat(routes);
+});
+
+export default allRoutes;
