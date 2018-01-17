@@ -2,7 +2,7 @@ import HelloWorld from './components/HelloWorld';
 
 export default [
   {
-    path: '/',
+    path: '/helloworld',
     name: 'helloWorld',
     component: HelloWorld
   }
