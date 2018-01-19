@@ -1,7 +1,9 @@
-import { routes as coreRoutes } from '@/core';
-import { routes as helloWorldRoutes } from 'Modules/hello-world';
+import { routes as core } from 'Core';
+import { routes as auth } from 'Modules/auth';
+import { routes as hello } from 'Modules/hello';
 
 export default [
-  ...coreRoutes,
-  ...helloWorldRoutes
+  ...core,
+  ...auth,
+  ...hello
 ];

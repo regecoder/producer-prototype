@@ -1,13 +1,15 @@
 export default [
   {
     path: '/',
+    name: 'root',
     redirect: {
-      name: 'helloWorld'
-    },
-    name: 'root'
+      name: 'hello'
+    }
   },
   {
     path: '*',
-    redirect: '/'
+    redirect: {
+      name: 'world'
+    }
   }
 ];

@@ -45,8 +45,11 @@ module.exports = {
     }],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-console': 'off',
+    'no-console': 0,
     'comma-dangle': ['error', 'never'],
-    'import/no-dynamic-require': 'off'
+    'import/no-dynamic-require': 0,
+    'class-methods-use-this': 0,
+    'func-names': 0,
+    'object-shorthand': 0
   }
 }
