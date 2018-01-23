@@ -6,11 +6,7 @@
 import auth0 from 'auth0-js';
 import EventEmitter from 'EventEmitter';
 
-import router from '@/router';
-import { config as coreConfig } from 'Core';
-
-import config from './config';
-
+import { router, config } from '@';
 
 class Service {
 
@@ -26,12 +22,12 @@ class Service {
   }
 
   auth0 = new auth0.WebAuth({
-    domain: config.domain,
-    clientID: config.clientId,
-    redirectUri: config.callbackUrl,
-    audience: config.audience,
-    responseType: config.responseType,
-    scope: config.scope
+    domain: config.auth.domain,
+    clientID: config.auth.clientId,
+    redirectUri: config.auth.callbackUrl,
+    audience: config.auth.audience,
+    responseType: config.auth.responseType,
+    scope: config.auth.scope
   })
 
   login() {
@@ -43,11 +39,11 @@ class Service {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
         router.replace({
-          name: coreConfig.loginSuccessRoute
+          name: config.core.loginSuccessRoute
         });
       } else if (err) {
         router.replace({
-          name: coreConfig.loginErrorRoute
+          name: config.core.loginErrorRoute
         });
         console.log(err);
       }
@@ -78,7 +74,7 @@ class Service {
       isAuthenticated: false
     });
     router.replace({
-      name: coreConfig.logoutRoute
+      name: config.core.logoutRoute
     });
   }
 

@@ -1,9 +1,9 @@
 const envConfig = require(`./config.${process.env.NODE_ENV}`);
 
 const config = {
-  loginSuccessRoute: 'world',
+  loginSuccessRoute: 'hello',
   loginErrorRoute: 'hello',
-  logoutRoute: 'hello'
+  logoutRoute: 'world'
 };
 
 Object.assign(config, envConfig);
