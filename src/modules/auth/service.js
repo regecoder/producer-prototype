@@ -7,13 +7,16 @@ import auth0 from 'auth0-js';
 import EventEmitter from 'EventEmitter';
 
 import router from '@/router';
+import { config as coreConfig } from 'Core';
 
 import config from './config';
+
 
 class Service {
 
   isAuthenticated = this.checkSession()
   eventEmitter = new EventEmitter()
+
 
   constructor() {
     this.login = this.login.bind(this);
@@ -39,9 +42,13 @@ class Service {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
-        router.replace({ name: config.loginSuccessRoute });
+        router.replace({
+          name: coreConfig.loginSuccessRoute
+        });
       } else if (err) {
-        router.replace({ name: config.loginErrorRoute });
+        router.replace({
+          name: coreConfig.loginErrorRoute
+        });
         console.log(err);
       }
     });
@@ -70,7 +77,9 @@ class Service {
     this.eventEmitter.emit('authChange', {
       isAuthenticated: false
     });
-    router.replace({ name: config.logoutRoute });
+    router.replace({
+      name: coreConfig.logoutRoute
+    });
   }
 
   checkSession() {
