@@ -1,5 +1,5 @@
-import Hello from './components/Hello';
-import World from './components/World';
+import Hello from './components/hello';
+import World from './components/world';
 
 export default [
   {

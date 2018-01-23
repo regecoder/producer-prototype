@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import Navbar from 'Core/components/Navbar';
-import AuthHeader from 'Modules/auth/components/Header';
+import Navbar from 'Core/components/navbar';
+import AuthHeader from 'Modules/auth/components/header';
 
 export default {
   data() {

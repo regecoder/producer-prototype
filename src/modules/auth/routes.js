@@ -1,4 +1,4 @@
-import Callback from './components/Callback';
+import Callback from './components/callback';
 
 export default [
   {
