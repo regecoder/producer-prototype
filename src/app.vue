@@ -1,34 +1,14 @@
 <template lang="pug">
   #app
-    .name {{ name }}
-    auth-header
-    navbar
-    router-view
+    layout
 </template>
 
 <script>
-import Navbar from 'Core/components/navbar';
-import AuthHeader from 'Modules/auth/components/header';
+import Layout from 'Core/components/layout';
 
 export default {
-  data() {
-    return {
-      name: 'app'
-    };
-  },
   components: {
-    Navbar,
-    AuthHeader
+    Layout
   }
 };
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-}
-
-.name {
-  color: green;
-}
-</style>
