@@ -9,7 +9,7 @@ import service from '../service';
 export default {
   data() {
     return {
-      name: 'authCallback'
+      name: 'auth-callback'
     };
   },
   created: function () {
