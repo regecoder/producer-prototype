@@ -1,18 +1,14 @@
 <template lang="pug">
-  #world
+  #navbar
     .name {{ name }}
 </template>
 
 <script>
-
 export default {
   data() {
     return {
-      name: 'world'
+      name: 'notfound'
     };
-  },
-  created: function () {
-    document.title = this.name;
   }
 };
 </script>

@@ -1,15 +1,15 @@
+import NotFound from './components/notfound';
+
 export default [
   {
     path: '/',
     name: 'root',
     redirect: {
-      name: 'hello'
+      name: 'dashboard'
     }
   },
   {
     path: '*',
-    redirect: {
-      name: 'world'
-    }
+    component: NotFound
   }
 ];

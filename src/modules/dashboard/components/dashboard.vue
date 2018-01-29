@@ -8,7 +8,7 @@
 export default {
   data() {
     return {
-      name: 'hello'
+      name: 'dashboard'
     };
   },
   created: function () {
