@@ -1,6 +1,6 @@
 import Root from './components/root';
 import Welcome from './components/welcome';
-import NotAuthenticated from './components/not-authenticated';
+import Unauthorized from './components/unauthorized';
 import NotFound from './components/not-found';
 
 export default [
@@ -15,9 +15,9 @@ export default [
     component: Welcome
   },
   {
-    path: '/not-authenticated',
-    name: 'not-authenticated',
-    component: NotAuthenticated
+    path: '/unauthorized',
+    name: 'unauthorized',
+    component: Unauthorized
   },
   {
     path: '*',

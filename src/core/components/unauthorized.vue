@@ -1,5 +1,5 @@
 <template lang="pug">
-  #not-authenticated
+  #unauthorized
     .name {{ name }}
     button(@click="login()") LOGIN
 </template>
@@ -25,7 +25,7 @@ function login() {
 export default {
   data() {
     return {
-      name: 'not-authenticated'
+      name: 'unauthorized'
     };
   },
   methods: {

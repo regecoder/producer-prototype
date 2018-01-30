@@ -15,7 +15,7 @@ router.beforeResolve((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (!authService.isAuthenticated) {
       next({
-        name: 'not-authenticated',
+        name: 'unauthorized',
         replace: true,
         params: {
           origin: to.name
