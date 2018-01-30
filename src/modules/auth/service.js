@@ -63,9 +63,7 @@ class Service {
     localStorage.setItem('id-token', authResult.idToken);
     localStorage.setItem('expires-at', expiresAt);
     this.isAuthenticated = true;
-    this.eventEmitter.emit('authChange', {
-      isAuthenticated: true
-    });
+    this.eventEmitter.emit('stateChange');
   }
 
   logout() {
@@ -74,9 +72,7 @@ class Service {
     localStorage.removeItem('id-token');
     localStorage.removeItem('expires-at');
     this.isAuthenticated = false;
-    this.eventEmitter.emit('authChange', {
-      isAuthenticated: false
-    });
+    this.eventEmitter.emit('stateChange');
     router.replace({
       name: config.core.logoutRoute
     });

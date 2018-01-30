@@ -14,18 +14,17 @@ import Navbar from './navbar';
 
 export default {
   data() {
+    authService.eventEmitter.on('stateChange', () => {
+      this.isAuthenticated = authService.isAuthenticated;
+    });
     return {
-      name: 'layout'
+      name: 'layout',
+      isAuthenticated: authService.isAuthenticated
     };
   },
   components: {
     Navbar,
     AuthHeader
-  },
-  computed: {
-    isAuthenticated: function () {
-      return authService.isAuthenticated;
-    }
   }
 };
 </script>
