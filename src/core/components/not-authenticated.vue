@@ -7,6 +7,8 @@
 <script>
 import { service as authService } from 'Modules/auth';
 
+let originRoute = '';
+
 // Workaround qui corrige l'erreur provoquéee par
 // l'utilisation de authService directement dans methods:
 // methods: {
@@ -17,7 +19,7 @@ import { service as authService } from 'Modules/auth';
 // Ajout de la fonction intermédaire login
 
 function login() {
-  authService.login();
+  authService.login(originRoute);
 }
 
 export default {
@@ -28,6 +30,11 @@ export default {
   },
   methods: {
     login
+  },
+  beforeCreate: function () {
+    if (this.$route.params.hasOwnProperty('origin')) {
+      originRoute = this.$route.params.origin;
+    }
   }
 };
 </script>

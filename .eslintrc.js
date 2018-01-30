@@ -50,6 +50,8 @@ module.exports = {
     'import/no-dynamic-require': 0,
     'class-methods-use-this': 0,
     'func-names': 0,
-    'object-shorthand': 0
+    'object-shorthand': 0,
+    'no-prototype-builtins': 0,
+    'no-underscore-dangle': 0
   }
 }

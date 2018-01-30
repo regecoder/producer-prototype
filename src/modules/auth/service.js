@@ -13,9 +13,11 @@ class Service {
   isAuthenticated = this.checkSession()
   eventEmitter = new EventEmitter()
 
+  _redirectRoute = null
 
   constructor() {
     this.login = this.login.bind(this);
+    this.handleAuthentication = this.handleAuthentication.bind(this);
     this.setSession = this.setSession.bind(this);
     this.logout = this.logout.bind(this);
     this.checkSession = this.checkSession.bind(this);
@@ -30,7 +32,8 @@ class Service {
     scope: config.auth.scope
   })
 
-  login() {
+  login(originRoute = null) {
+    this._redirectRoute = originRoute;
     this.auth0.authorize();
   }
 
@@ -38,8 +41,9 @@ class Service {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
+        const redirectRoute = this._redirectRoute || config.core.loginSuccessRoute;
         router.push({
-          name: config.core.loginSuccessRoute
+          name: redirectRoute
         });
       } else if (err) {
         router.push({

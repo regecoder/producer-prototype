@@ -2,7 +2,7 @@ const envConfig = require(`./config.${process.env.NODE_ENV}`);
 
 const config = {
   loginSuccessRoute: 'dashboard',
-  loginErrorRoute: 'dashboard',
+  loginErrorRoute: 'not-authenticated',
   logoutRoute: 'welcome'
 };
 

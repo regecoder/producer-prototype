@@ -17,7 +17,9 @@ router.beforeResolve((to, from, next) => {
       next({
         name: 'not-authenticated',
         replace: true,
-        query: { redirect: to.name }
+        params: {
+          origin: to.name
+        }
       });
     } else {
       next();
