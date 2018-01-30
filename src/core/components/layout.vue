@@ -1,12 +1,14 @@
 <template lang="pug">
   #layout
     .name {{ name }}
-    auth-header
-    navbar
+    div(v-if="isAuthenticated")
+      auth-header
+      navbar
     router-view
 </template>
 
 <script>
+import { service as authService } from 'Modules/auth';
 import AuthHeader from 'Modules/auth/components/header';
 import Navbar from './navbar';
 
@@ -19,6 +21,11 @@ export default {
   components: {
     Navbar,
     AuthHeader
+  },
+  computed: {
+    isAuthenticated: function () {
+      return authService.isAuthenticated;
+    }
   }
 };
 </script>

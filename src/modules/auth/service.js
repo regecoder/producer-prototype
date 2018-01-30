@@ -38,11 +38,11 @@ class Service {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
-        router.replace({
+        router.push({
           name: config.core.loginSuccessRoute
         });
       } else if (err) {
-        router.replace({
+        router.push({
           name: config.core.loginErrorRoute
         });
         console.log(err);

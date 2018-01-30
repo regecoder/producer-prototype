@@ -7,7 +7,7 @@
 export default {
   data() {
     return {
-      name: 'notfound'
+      name: 'not-found'
     };
   }
 };
