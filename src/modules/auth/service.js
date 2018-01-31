@@ -17,7 +17,7 @@ class Service {
 
   constructor() {
     this.login = this.login.bind(this);
-    this.handleAuthentication = this.handleAuthentication.bind(this);
+    this.authenticate = this.authenticate.bind(this);
     this.setSession = this.setSession.bind(this);
     this.logout = this.logout.bind(this);
     this.checkSession = this.checkSession.bind(this);
@@ -37,7 +37,7 @@ class Service {
     this.auth0.authorize();
   }
 
-  handleAuthentication() {
+  authenticate() {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
