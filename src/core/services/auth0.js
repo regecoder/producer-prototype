@@ -8,6 +8,9 @@ import EventEmitter from 'EventEmitter';
 
 import { router, config } from '@';
 
+// Alias
+const configRoute = config.app.route;
+
 class Service {
 
   isAuthenticated = this.checkSession()
@@ -41,13 +44,13 @@ class Service {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
-        const redirectRoute = this._redirectRoute || config.core.loginSuccessRoute;
+        const redirectRoute = this._redirectRoute || configRoute.loginSuccess;
         router.push({
           name: redirectRoute
         });
       } else if (err) {
         router.push({
-          name: config.core.loginErrorRoute
+          name: configRoute.loginError
         });
         console.log(err);
       }
@@ -74,7 +77,7 @@ class Service {
     this.isAuthenticated = false;
     this.eventEmitter.emit('stateChange');
     router.replace({
-      name: config.core.logoutRoute
+      name: configRoute.logout
     });
   }
 

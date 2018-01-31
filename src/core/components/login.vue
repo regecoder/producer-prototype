@@ -1,32 +1,30 @@
 <template lang="pug">
-  #auth-header
+  #login
     .name {{ name }}
     div(v-if="isAuthenticated")
-      div Authenticated
       button(@click="logout()") LOGOUT
     div(v-else)
-      div Anonymous
       button(@click="login()") LOGIN
 </template>
 
 <script>
-import service from '../service';
+import { authService } from '../services';
 
 export default {
   data() {
     return {
-      name: 'auth-header',
-      service
+      name: 'login',
+      authService
     };
   },
   computed: {
     isAuthenticated: function () {
-      return service.isAuthenticated;
+      return authService.isAuthenticated;
     }
   },
   methods: {
-    login: service.login,
-    logout: service.logout
+    login: authService.login,
+    logout: authService.logout
   }
 };
 </script>

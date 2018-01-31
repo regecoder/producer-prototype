@@ -1,19 +1,19 @@
 <template lang="pug">
-  #auth-callback
+  #login-callback
     .name {{ name }}
 </template>
 
 <script>
-import service from '../service';
+import { authService } from '../services';
 
 export default {
   data() {
     return {
-      name: 'auth-callback'
+      name: 'login-callback'
     };
   },
   created: function () {
-    service.authenticate();
+    authService.authenticate();
   }
 };
 </script>

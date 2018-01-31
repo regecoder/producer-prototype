@@ -1,4 +1,4 @@
-import { service as authService } from 'Modules/auth';
+import { authService } from '../services';
 
 let originRoute = '';
 
