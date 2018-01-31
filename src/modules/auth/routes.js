@@ -1,11 +1,13 @@
-import Login from './components/login';
+import service from './service';
 import Callback from './components/callback';
 
 export default [
   {
     path: '/auth/login',
     name: 'auth-login',
-    component: Login
+    beforeEnter: () => {
+      service.login();
+    }
   },
   {
     path: '/auth/callback',
