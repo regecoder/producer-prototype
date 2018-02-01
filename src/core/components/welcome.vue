@@ -5,8 +5,6 @@
 </template>
 
 <script>
-import { store } from '@';
-
 import loginMixin from '../mixins/login';
 
 export default {
@@ -17,10 +15,6 @@ export default {
     return {
       name: 'welcome'
     };
-  },
-  created: function () {
-    console.log('store');
-    console.log(store);
   }
 };
 </script>
