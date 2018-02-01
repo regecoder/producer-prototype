@@ -1,7 +1,7 @@
-import { routes as core } from 'Core';
-import { routes as dashboard } from 'Modules/dashboard';
+import { routes as coreRoutes } from 'Core';
+import { routes as dashboardRoutes } from 'Modules/dashboard';
 
 export default [
-  ...core,
-  ...dashboard
+  ...coreRoutes,
+  ...dashboardRoutes
 ];
