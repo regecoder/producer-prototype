@@ -4,17 +4,13 @@
 // https://github.com/auth0-samples/auth0-vue-samples
 
 import auth0 from 'auth0-js';
-import EventEmitter from 'EventEmitter';
 
-import { router, config } from '@';
+import { router, config, store } from '@';
 
 // Alias
 const configRoute = config.app.route;
 
-class Service {
-
-  isAuthenticated = this.checkSession()
-  eventEmitter = new EventEmitter()
+class Auth0Service {
 
   _redirectRoute = null
 
@@ -23,7 +19,7 @@ class Service {
     this.authenticate = this.authenticate.bind(this);
     this.setSession = this.setSession.bind(this);
     this.logout = this.logout.bind(this);
-    this.checkSession = this.checkSession.bind(this);
+    this.isSessionActive = this.isSessionActive.bind(this);
   }
 
   auth0 = new auth0.WebAuth({
@@ -65,8 +61,7 @@ class Service {
     localStorage.setItem('access-token', authResult.accessToken);
     localStorage.setItem('id-token', authResult.idToken);
     localStorage.setItem('expires-at', expiresAt);
-    this.isAuthenticated = true;
-    this.eventEmitter.emit('stateChange');
+    store.commit('authenticate', true);
   }
 
   logout() {
@@ -74,14 +69,13 @@ class Service {
     localStorage.removeItem('access-token');
     localStorage.removeItem('id-token');
     localStorage.removeItem('expires-at');
-    this.isAuthenticated = false;
-    this.eventEmitter.emit('stateChange');
+    store.commit('authenticate', false);
     router.replace({
       name: configRoute.logout
     });
   }
 
-  checkSession() {
+  isSessionActive() {
     // Check whether the current time is past the
     // access token's expiry time
     const expiresAt = JSON.parse(localStorage.getItem('expires-at'));
@@ -89,4 +83,4 @@ class Service {
   }
 }
 
-export default new Service();
+export default new Auth0Service();

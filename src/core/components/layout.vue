@@ -1,25 +1,25 @@
 <template lang="pug">
   #layout
     .name {{ name }}
-    .auth authenticated: {{ isAuthenticated }}
-    div(v-if="isAuthenticated")
+    .auth authenticated: {{ isUserAuthenticated }}
+    div(v-if="isUserAuthenticated")
       login
     router-view
 </template>
 
 <script>
-import { authService } from '../services';
 import Login from './login';
 
 export default {
   data() {
-    authService.eventEmitter.on('stateChange', () => {
-      this.isAuthenticated = authService.isAuthenticated;
-    });
     return {
-      name: 'layout',
-      isAuthenticated: authService.isAuthenticated
+      name: 'layout'
     };
+  },
+  computed: {
+    isUserAuthenticated: function () {
+      return this.$store.getters.isUserAuthenticated;
+    }
   },
   components: {
     Login

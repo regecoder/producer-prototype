@@ -6,6 +6,10 @@ export default {
       isAuthenticated: false
     }
   },
+  getters: {
+    isUserAuthenticated: state =>
+      state.user.isAuthenticated
+  },
   mutations: {
     authenticate: (state, isAuthenticated) => {
       state.user.isAuthenticated = (isAuthenticated === true);

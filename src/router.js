@@ -1,8 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import { authService } from 'Core/services';
-
+import store from './store';
 import routes from './routes';
 
 Vue.use(VueRouter);
@@ -14,7 +13,7 @@ const router = new VueRouter({
 
 router.beforeResolve((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (!authService.isAuthenticated) {
+    if (!store.getters.isUserAuthenticated) {
       next({
         name: 'unauthorized',
         replace: true,

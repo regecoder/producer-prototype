@@ -1,3 +1,4 @@
+import { store } from '@';
 import { authService } from './services';
 
 import config from './config';
@@ -16,7 +17,7 @@ export default [
     path: '/',
     name: 'root',
     beforeEnter: (to, from, next) => {
-      if (authService.isAuthenticated) {
+      if (store.getters.isUserAuthenticated) {
         next({
           name: configRoute.loginSuccess,
           replace: true

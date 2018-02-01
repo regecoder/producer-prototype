@@ -1,7 +1,7 @@
 <template lang="pug">
   #login
     .name {{ name }}
-    div(v-if="isAuthenticated")
+    div(v-if="isUserAuthenticated")
       button(@click="logout()") LOGOUT
     div(v-else)
       button(@click="login()") LOGIN
@@ -13,13 +13,12 @@ import { authService } from '../services';
 export default {
   data() {
     return {
-      name: 'login',
-      authService
+      name: 'login'
     };
   },
   computed: {
-    isAuthenticated: function () {
-      return authService.isAuthenticated;
+    isUserAuthenticated: function () {
+      return this.$store.getters.isUserAuthenticated;
     }
   },
   methods: {
