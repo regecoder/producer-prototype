@@ -8,22 +8,18 @@
 </template>
 
 <script>
+// eslint-disable-next-line
 import { authService } from '../services';
+import loginMixin from '../mixins/login';
 
 export default {
+  mixins: [
+    loginMixin
+  ],
   data() {
     return {
       name: 'login'
     };
-  },
-  computed: {
-    isUserAuthenticated: function () {
-      return this.$store.getters.isUserAuthenticated;
-    }
-  },
-  methods: {
-    login: authService.login,
-    logout: authService.logout
   }
 };
 </script>

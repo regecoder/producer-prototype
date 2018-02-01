@@ -2,22 +2,19 @@ import { authService } from '../services';
 
 let originRoute = '';
 
-// Workaround qui corrige l'erreur provoquéee par
-// l'utilisation de authService directement dans methods:
-// methods: {
-//   login: authService.login
-// }
-// Cannot read property 'login' of undefined
-// solution:
-// Ajout de la fonction intermédaire login
-
-function login() {
-  authService.login(originRoute);
-}
-
 export default {
+  computed: {
+    isUserAuthenticated: function () {
+      return this.$store.getters.isUserAuthenticated;
+    }
+  },
   methods: {
-    login
+    login: function () {
+      authService.login(originRoute);
+    },
+    logout: function () {
+      authService.logout();
+    }
   },
   beforeCreate: function () {
     if (this.$route.params.hasOwnProperty('origin')) {

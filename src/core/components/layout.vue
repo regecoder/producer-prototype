@@ -3,26 +3,25 @@
     .name {{ name }}
     .auth authenticated: {{ isUserAuthenticated }}
     div(v-if="isUserAuthenticated")
-      login
+      login-view
     router-view
 </template>
 
 <script>
-import Login from './login';
+import LoginView from './login';
+import loginMixin from '../mixins/login';
 
 export default {
+  mixins: [
+    loginMixin
+  ],
   data() {
     return {
       name: 'layout'
     };
   },
-  computed: {
-    isUserAuthenticated: function () {
-      return this.$store.getters.isUserAuthenticated;
-    }
-  },
   components: {
-    Login
+    LoginView
   }
 };
 </script>
