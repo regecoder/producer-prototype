@@ -12,7 +12,7 @@ export default {
   },
   mutations: {
     authenticate: (state, isAuthenticated) => {
-      state.user.isAuthenticated = (isAuthenticated === true);
+      state.user.isAuthenticated = isAuthenticated;
     }
   },
   actions: {

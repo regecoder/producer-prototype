@@ -79,7 +79,7 @@ class Auth0Service {
     // Check whether the current time is past the
     // access token's expiry time
     const expiresAt = JSON.parse(localStorage.getItem('expires-at'));
-    return new Date().getTime() < expiresAt;
+    return (new Date().getTime() < expiresAt);
   }
 }
 

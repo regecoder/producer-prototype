@@ -8,8 +8,6 @@
 </template>
 
 <script>
-// eslint-disable-next-line
-import { authService } from '../services';
 import loginMixin from '../mixins/login';
 
 export default {

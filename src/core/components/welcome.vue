@@ -20,4 +20,9 @@ export default {
 </script>
 
 <style scoped>
+  button {
+    cursor: pointer;;
+    padding: 2px 5px;
+    border: 1px solid #aaa;
+  }
 </style>

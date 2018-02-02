@@ -3,12 +3,16 @@
     .name {{ name }}
     .auth authenticated: {{ isUserAuthenticated }}
     div(v-if="isUserAuthenticated")
-      login-view
+      login
     router-view
 </template>
 
 <script>
-import LoginView from './login';
+// Workaround qui permet aux composants enfants d'intégrer le mixin login sans erreur
+// eslint-disable-next-line no-unused-vars
+import { authService } from '../services';
+
+import LoginComponent from './login';
 import loginMixin from '../mixins/login';
 
 export default {
@@ -21,7 +25,7 @@ export default {
     };
   },
   components: {
-    LoginView
+    login: LoginComponent
   }
 };
 </script>

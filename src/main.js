@@ -7,13 +7,17 @@ import App from './app';
 import store from './store';
 import router from './router';
 
-Vue.config.productionTip = false;
+// Configure Vue
+import './vue.config';
+
+// Initialise le store avant la création de l'instance racine de Vue
+store.dispatch('initialize');
 
 // eslint-disable-next-line no-new
 new Vue({
   el: '#app',
-  router,
   store,
+  router,
   template: '<App/>',
   components: { App }
 });
