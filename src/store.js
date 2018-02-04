@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import { store as coreStore } from 'Core';
+import { store as coreStore } from './core';
 
 Vue.use(Vuex);
 

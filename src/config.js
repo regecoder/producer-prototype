@@ -1,1 +1,1 @@
-export { config as default } from 'Core';
+export { config as default } from './core';
