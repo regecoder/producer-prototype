@@ -5,7 +5,7 @@
 
 import auth0 from 'auth0-js';
 
-import { router, config, store } from '@';
+import { router, config, store } from 'App';
 
 // Alias
 const configRoute = config.app.route;

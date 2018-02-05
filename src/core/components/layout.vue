@@ -1,6 +1,7 @@
 <template lang="pug">
   #layout
     .name {{ name }}
+      .first Régis
     .auth authenticated: {{ isUserAuthenticated }}
     div(v-if="isUserAuthenticated")
       login
@@ -37,5 +38,9 @@ export default {
 
 .name {
   color: green;
+}
+
+.first {
+  color: red;
 }
 </style>

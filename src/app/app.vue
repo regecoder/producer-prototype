@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import Layout from './core/components/layout';
+import Layout from 'Core/components/layout';
 
 export default {
   components: {

@@ -1,14 +1,11 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-
 import Vue from 'vue';
 
-import App from './app';
-import store from './store';
-import router from './router';
+import App from 'App/app';
+
+import { store, router } from 'App';
 
 // Configure Vue
-import './vue.config';
+import 'App/vue.config';
 
 // Initialise le store avant la création de l'instance racine de Vue
 store.dispatch('initialize');

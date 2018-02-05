@@ -1,6 +1,6 @@
-import { store } from '@';
-import { authService } from './services';
+import { store } from 'App';
 
+import { authService } from './services';
 import config from './config';
 
 import Welcome from './components/welcome';
