@@ -4,6 +4,9 @@ import App from 'App/app';
 
 import { store, router } from 'App';
 
+// Importe les styles globaux
+import 'App/assets';
+
 // Configure Vue
 import 'App/vue.config';
 

@@ -32,15 +32,4 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-}
-
-.name {
-  color: green;
-}
-
-.first {
-  color: red;
-}
 </style>
