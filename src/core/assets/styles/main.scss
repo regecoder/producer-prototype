@@ -1,11 +1,4 @@
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-}
-
-.name {
-  color: green;
-
-  .first {
-    color: blue;
-  }
-}
+// Variables globales
+@import 'base/variables';
+// Styles globaux
+@import 'base/global';
