@@ -1,4 +1,4 @@
-import { authService } from '../services';
+import { authService } from 'Core/services';
 
 let originRoute = '';
 

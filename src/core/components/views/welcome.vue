@@ -1,14 +1,11 @@
 <template lang="pug">
-  #login
+  #welcome
     .name {{ name }}
-    div(v-if="isUserAuthenticated")
-      button(@click="logout()") LOGOUT
-    div(v-else)
-      button(@click="login()") LOGIN
+    button(@click="login()") LOGIN
 </template>
 
 <script>
-import loginMixin from '../mixins/login';
+import loginMixin from 'Core/mixins/login';
 
 export default {
   mixins: [
@@ -16,7 +13,7 @@ export default {
   ],
   data() {
     return {
-      name: 'login'
+      name: 'welcome'
     };
   }
 };

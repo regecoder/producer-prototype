@@ -11,10 +11,11 @@
 <script>
 // Workaround qui permet aux composants enfants d'intégrer le mixin login sans erreur
 // eslint-disable-next-line no-unused-vars
-import { authService } from '../services';
+import { authService } from 'Core/services';
 
-import LoginComponent from './login';
-import loginMixin from '../mixins/login';
+import loginMixin from 'Core/mixins/login';
+
+import LoginComponent from '../views/login';
 
 export default {
   mixins: [

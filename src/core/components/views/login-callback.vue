@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import { authService } from '../services';
+import { authService } from 'Core/services';
 
 export default {
   data() {

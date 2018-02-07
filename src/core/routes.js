@@ -3,10 +3,10 @@ import { store } from 'App';
 import { authService } from './services';
 import config from './config';
 
-import Welcome from './components/welcome';
-import LoginCallback from './components/login-callback';
-import Unauthorized from './components/unauthorized';
-import NotFound from './components/not-found';
+import Welcome from './components/views/welcome';
+import LoginCallback from './components/views/login-callback';
+import Unauthorized from './components/views/unauthorized';
+import NotFound from './components/views/not-found';
 
 // Alias
 const configRoute = config.app.route;
