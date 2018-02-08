@@ -3,10 +3,10 @@ import { store } from 'App';
 import { authService } from './services';
 import config from './config';
 
-import Welcome from './components/views/welcome';
-import LoginCallback from './components/views/login-callback';
-import Unauthorized from './components/views/unauthorized';
-import NotFound from './components/views/not-found';
+import welcome from './components/views/welcome';
+import loginCallback from './components/views/login-callback';
+import unauthorized from './components/views/unauthorized';
+import notFound from './components/views/not-found';
 
 // Alias
 const configRoute = config.app.route;
@@ -34,7 +34,7 @@ export default [
   {
     path: '/welcome',
     name: 'welcome',
-    component: Welcome
+    component: welcome
   },
   // Login
   {
@@ -46,17 +46,17 @@ export default [
   },
   {
     path: '/login/callback',
-    component: LoginCallback
+    component: loginCallback
   },
   // Non autorisé
   {
     path: '/unauthorized',
     name: 'unauthorized',
-    component: Unauthorized
+    component: unauthorized
   },
   // Routes non résolues
   {
     path: '*',
-    component: NotFound
+    component: notFound
   }
 ];

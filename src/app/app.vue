@@ -4,11 +4,11 @@
 </template>
 
 <script>
-import Layout from 'Core/components/layouts/layout';
+import layout from 'Core/components/layouts/layout';
 
 export default {
   components: {
-    Layout
+    layout
   }
 };
 </script>

@@ -15,7 +15,7 @@ import { authService } from 'Core/services';
 
 import loginMixin from 'Core/mixins/login';
 
-import LoginComponent from '../views/login';
+import loginComponent from '../views/login';
 
 export default {
   mixins: [
@@ -27,7 +27,7 @@ export default {
     };
   },
   components: {
-    login: LoginComponent
+    login: loginComponent
   }
 };
 </script>
