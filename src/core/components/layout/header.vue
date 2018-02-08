@@ -18,9 +18,9 @@
 
 <style lang="scss" scoped>
   .baseline {
+    margin-top: 0.3rem;
     font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 21px;
+    font-size: 2rem;
     font-weight: 300;
-    line-height: 1.4;
   }
 </style>
