@@ -9,26 +9,25 @@ import { router, config, store } from 'App';
 
 class Auth0Service {
 
-  // Alias
-  _configRoute = config.app.route
-
-  _webAuth = new auth0.WebAuth({
-    domain: config.auth.domain,
-    clientID: config.auth.clientId,
-    redirectUri: config.auth.callbackUrl,
-    audience: config.auth.audience,
-    responseType: config.auth.responseType,
-    scope: config.auth.scope
-  })
-
-  _redirectRoute = null
-
   constructor() {
-    this.login = this.login.bind(this);
-    this.authenticate = this.authenticate.bind(this);
-    this.setSession = this.setSession.bind(this);
-    this.logout = this.logout.bind(this);
-    this.isSessionActive = this.isSessionActive.bind(this);
+    // this.login = this.login.bind(this);
+    // this.authenticate = this.authenticate.bind(this);
+    // this.setSession = this.setSession.bind(this);
+    // this.logout = this.logout.bind(this);
+    // this.isSessionActive = this.isSessionActive.bind(this);
+
+    // Alias
+    this._configRoute = config.app.route;
+    this._redirectRoute = null;
+
+    this._webAuth = new auth0.WebAuth({
+      domain: config.auth.domain,
+      clientID: config.auth.clientId,
+      redirectUri: config.auth.callbackUrl,
+      audience: config.auth.audience,
+      responseType: config.auth.responseType,
+      scope: config.auth.scope
+    });
   }
 
   login(originRoute = null) {

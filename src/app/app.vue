@@ -4,7 +4,11 @@
 </template>
 
 <script>
-import layout from 'Core/components/layouts/layout';
+// Workaround qui permet aux composants enfants d'intégrer le mixin login sans erreur
+// eslint-disable-next-line no-unused-vars
+import { authService } from 'Core/services';
+
+import layout from 'Core/components/layout/layout';
 
 export default {
   components: {
