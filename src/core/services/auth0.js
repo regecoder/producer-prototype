@@ -7,10 +7,19 @@ import auth0 from 'auth0-js';
 
 import { router, config, store } from 'App';
 
-// Alias
-const configRoute = config.app.route;
-
 class Auth0Service {
+
+  // Alias
+  _configRoute = config.app.route
+
+  _webAuth = new auth0.WebAuth({
+    domain: config.auth.domain,
+    clientID: config.auth.clientId,
+    redirectUri: config.auth.callbackUrl,
+    audience: config.auth.audience,
+    responseType: config.auth.responseType,
+    scope: config.auth.scope
+  })
 
   _redirectRoute = null
 
@@ -22,31 +31,22 @@ class Auth0Service {
     this.isSessionActive = this.isSessionActive.bind(this);
   }
 
-  auth0 = new auth0.WebAuth({
-    domain: config.auth.domain,
-    clientID: config.auth.clientId,
-    redirectUri: config.auth.callbackUrl,
-    audience: config.auth.audience,
-    responseType: config.auth.responseType,
-    scope: config.auth.scope
-  })
-
   login(originRoute = null) {
     this._redirectRoute = originRoute;
-    this.auth0.authorize();
+    this._webAuth.authorize();
   }
 
   authenticate() {
-    this.auth0.parseHash((err, authResult) => {
+    this._webAuth.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
-        const redirectRoute = this._redirectRoute || configRoute.loginSuccess;
+        const redirectRoute = this._redirectRoute || this._configRoute.loginSuccess;
         router.push({
           name: redirectRoute
         });
       } else if (err) {
         router.push({
-          name: configRoute.loginError
+          name: this._configRoute.loginError
         });
         console.log(err);
       }
@@ -71,7 +71,7 @@ class Auth0Service {
     localStorage.removeItem('expires-at');
     store.commit('authenticate', false);
     router.replace({
-      name: configRoute.logout
+      name: this._configRoute.logout
     });
   }
 
