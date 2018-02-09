@@ -2,19 +2,37 @@
   padding: 2% 10%;
 }
 
-.component-title {
-  font-size: 4rem;
+.form-title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
 }
 
-#video-edit {
+.form {
   // margin: 0 auto;
   max-width: 65em;
   min-width: 30em;
   width: 65vw;
 }
 
+.form-field-panel {
+  border-top: medium solid #00c0ef;
+  margin-bottom: 2rem;
+  padding: 2rem 0;
+}
+
+.form-panel-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
 .form-section {
   margin-bottom: 4rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .form-field {
@@ -38,19 +56,26 @@
   }
 }
 
-.form-commands {
+.form-command-panel {
+  align-items: center;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 100%;
 
   button {
     background-color: #00c0ef;
     border: 1px solid transparent;
     color: #fff;
     cursor: pointer;
+    display: block;
     font-size: 2rem;
     line-height: 1em;
     padding: 0.5em 1em;
-    text-align: center;
+  }
+
+  a {
+    font-size: 2rem;
+    text-decoration: none;
   }
 }

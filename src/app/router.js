@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
@@ -10,6 +12,25 @@ Vue.use(VueRouter);
 const router = new VueRouter({
   mode: 'history',
   routes
+});
+
+router.beforeEach((to, from, next) => {
+  // Gère la redirection de la racine
+  if (to.name === 'root') {
+    next(getRootRoute());
+  }
+  // Vérifie l'authorisation de l'utilisateur
+  if (!checkAuthorization(to)) {
+    next({
+      name: 'unauthorized',
+      replace: true,
+      params: {
+        origin: to.name
+      }
+    });
+  } else {
+    next();
+  }
 });
 
 function getRootRoute() {
@@ -41,23 +62,5 @@ function checkAuthorization(route) {
   return isAuthorized;
 }
 
-router.beforeEach((to, from, next) => {
-  // Gère la redirection de la racine
-  if (to.name === 'root') {
-    next(getRootRoute());
-  }
-  // Vérifie l'authorisation de l'utilisateur
-  if (!checkAuthorization(to)) {
-    next({
-      name: 'unauthorized',
-      replace: true,
-      params: {
-        origin: to.name
-      }
-    });
-  } else {
-    next();
-  }
-});
 
 export default router;
