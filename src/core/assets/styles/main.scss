@@ -1,5 +1,11 @@
+// BASE
 // Variables globales
-@import 'base/global-variables';
-
+@import 'base/settings';
 // Styles globaux
-@import 'base/global-styles';
+@import 'base/styles';
+
+// LAYOUT
+// Grille
+@import 'layout/grid';
+// Styles
+@import 'layout/styles';

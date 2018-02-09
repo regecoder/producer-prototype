@@ -1,0 +1,6 @@
+// sass-lint:disable space-before-colon
+
+.layout {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}

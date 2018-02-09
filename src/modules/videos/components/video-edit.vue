@@ -1,13 +1,16 @@
 <template lang="pug">
   #video-edit
-    .name video-edit
+    //- .name video-edit
+    img(:src="defaultPath")
 </template>
 
 <script>
+const defaultPath = require('../assets/images/regecoder.png');
 
 export default {
   data() {
     return {
+      defaultPath
     };
   },
   created: function () {
