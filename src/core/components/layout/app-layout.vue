@@ -1,7 +1,7 @@
 <template lang="pug">
   #app-layout.layout
-    app-header
-    router-view
+    app-header.header
+    router-view.content
 </template>
 
 <script>

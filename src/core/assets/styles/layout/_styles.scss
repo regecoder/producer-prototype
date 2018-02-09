@@ -1,6 +1,56 @@
-// sass-lint:disable no-ids
-// sass-lint:disable space-before-colon
-
-#app-layout {
+.layout {
   padding: 2% 10%;
+}
+
+.component-title {
+  font-size: 4rem;
+}
+
+#video-edit {
+  // margin: 0 auto;
+  max-width: 65em;
+  min-width: 30em;
+  width: 65vw;
+}
+
+.form-section {
+  margin-bottom: 4rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    color: #999;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  input,
+  select {
+    font-size: 2rem;
+
+  }
+
+  input[type='date'] {
+    width: 10em;
+  }
+}
+
+.form-commands {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  button {
+    background-color: #00c0ef;
+    border: 1px solid transparent;
+    color: #fff;
+    cursor: pointer;
+    font-size: 2rem;
+    line-height: 1em;
+    padding: 0.5em 1em;
+    text-align: center;
+  }
 }
