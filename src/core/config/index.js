@@ -1,7 +1,7 @@
 // Types de configuration:
 // env, app, auth
 
-import authConfig from './auth0';
+import authConfig from './auth0.config';
 
 const envConfig = require(`./env.${process.env.NODE_ENV}`);
 

@@ -1,11 +1,11 @@
 <template lang="pug">
-  #welcome
-    .name {{ name }}
+  #app-welcome
+    .name app-welcome
     button(@click="login()") LOGIN
 </template>
 
 <script>
-import loginMixin from 'Core/mixins/login';
+import loginMixin from 'Core/mixins/app-login.mixin';
 
 export default {
   mixins: [
@@ -13,7 +13,6 @@ export default {
   ],
   data() {
     return {
-      name: 'welcome'
     };
   }
 };

@@ -1,5 +1,5 @@
 <template lang="pug">
-  #header
+  #app-header
     img.logo(:src="logoPath")
     .baseline La blockchain au service de la diffusion des œuvres audiovisuelles du spectacle vivant
 </template>

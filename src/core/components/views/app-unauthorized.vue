@@ -1,6 +1,6 @@
 <template lang="pug">
-  #login
-    .name {{ name }}
+  #app-unauthorized
+    .name app-unauthorized
     div(v-if="isUserAuthenticated")
       button(@click="logout()") LOGOUT
     div(v-else)
@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import loginMixin from 'Core/mixins/login';
+import loginMixin from 'Core/mixins/app-login.mixin';
 
 export default {
   mixins: [
@@ -16,7 +16,6 @@ export default {
   ],
   data() {
     return {
-      name: 'login'
     };
   }
 };

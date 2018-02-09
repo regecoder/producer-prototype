@@ -1,6 +1,6 @@
 <template lang="pug">
-  #navbar
-    .name {{ name }}
+  #app-not-found
+    .name app-not-found
     .path {{path}}
 </template>
 
@@ -8,7 +8,6 @@
 export default {
   data() {
     return {
-      name: 'not-found',
       path: this.$route.path
     };
   }

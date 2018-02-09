@@ -1,6 +1,6 @@
 <template lang="pug">
-  #dashboard
-    .name dashboard
+  #video-edit
+    .name video-edit
 </template>
 
 <script>

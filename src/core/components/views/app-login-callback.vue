@@ -1,21 +1,18 @@
 <template lang="pug">
-  #hello
-    .name {{ name }}
+  #app-login-callback
+    .name app-login-callback
 </template>
 
 <script>
+import { authService } from 'Core/services';
 
 export default {
   data() {
     return {
-      name: 'videos-edit'
     };
   },
   created: function () {
-    document.title = this.name;
+    authService.authenticate();
   }
 };
 </script>
-
-<style scoped>
-</style>
