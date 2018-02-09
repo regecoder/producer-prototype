@@ -1,7 +1,7 @@
-import { store } from 'App';
+// import { store } from 'App';
 
 import { authService } from './services';
-import config from './config';
+// import config from './config';
 
 import welcome from './components/views/welcome';
 import loginCallback from './components/views/login-callback';
@@ -9,25 +9,28 @@ import unauthorized from './components/views/unauthorized';
 import notFound from './components/views/not-found';
 
 // Alias
-const configRoute = config.app.route;
+// const configRoute = config.app.route;
 
 export default [
   // Racine
   {
     path: '/',
     name: 'root',
-    beforeEnter: (to, from, next) => {
-      if (store.getters.isUserAuthenticated) {
-        next({
-          name: configRoute.loginSuccess,
-          replace: true
-        });
-      } else {
-        next({
-          name: configRoute.welcome,
-          replace: true
-        });
-      }
+    // beforeEnter: (to, from, next) => {
+    //   if (store.getters.isUserAuthenticated) {
+    //     next({
+    //       name: configRoute.loginSuccess,
+    //       replace: true
+    //     });
+    //   } else {
+    //     next({
+    //       name: configRoute.welcome,
+    //       replace: true
+    //     });
+    //   }
+    // }
+    redirect: {
+      name: 'videos-add'
     }
   },
   // Welcome
