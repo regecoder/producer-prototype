@@ -1,15 +1,11 @@
-import { store } from 'App';
+import { store, config } from 'App';
 
 import { authService } from './services';
-import config from './config';
 
 import AppWelcome from './components/views/app-welcome';
 import AppLoginCallback from './components/views/app-login-callback';
 import AppUnauthorized from './components/views/app-unauthorized';
 import AppNotFound from './components/views/app-not-found';
-
-// Alias
-const configRoute = config.app.route;
 
 export default [
   // Racine
@@ -19,12 +15,12 @@ export default [
     beforeEnter: (to, from, next) => {
       if (store.getters.isUserAuthenticated) {
         next({
-          name: configRoute.loginSuccess,
+          name: config.app.route.loginSuccess,
           replace: true
         });
       } else {
         next({
-          name: configRoute.welcome,
+          name: config.app.route.welcome,
           replace: true
         });
       }

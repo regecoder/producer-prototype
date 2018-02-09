@@ -11,11 +11,11 @@ const router = new VueRouter({
   routes
 });
 
-function checkAuthorization(route, theStore) {
+function checkAuthorization(route, appStore) {
   let isAuthorized = true;
 
   if (route.matched.some(record => record.meta.requiresAuth)
-    && (!theStore.getters.isUserAuthenticated)) {
+    && (!appStore.getters.isUserAuthenticated)) {
     isAuthorized = false;
   }
 
