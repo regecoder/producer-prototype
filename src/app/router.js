@@ -11,19 +11,26 @@ const router = new VueRouter({
   routes
 });
 
+function checkAuthorization(route, theStore) {
+  let isAuthorized = true;
+
+  if (route.matched.some(record => record.meta.requiresAuth)
+    && (!theStore.getters.isUserAuthenticated)) {
+    isAuthorized = false;
+  }
+
+  return isAuthorized;
+}
+
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (!store.getters.isUserAuthenticated) {
-      next({
-        name: 'unauthorized',
-        replace: true,
-        params: {
-          origin: to.name
-        }
-      });
-    } else {
-      next();
-    }
+  if (!checkAuthorization(to, store)) {
+    next({
+      name: 'unauthorized',
+      replace: true,
+      params: {
+        origin: to.name
+      }
+    });
   } else {
     next();
   }
