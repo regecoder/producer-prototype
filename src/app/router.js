@@ -1,8 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
+import { config, store } from 'App';
+
 import routes from './routes';
-import store from './store';
 
 Vue.use(VueRouter);
 
@@ -11,11 +12,29 @@ const router = new VueRouter({
   routes
 });
 
-function checkAuthorization(route, appStore) {
+function getRootRoute() {
+  let rootRoute;
+
+  if (store.getters.isUserAuthenticated) {
+    rootRoute = {
+      name: config.app.route.loginSuccess,
+      replace: true
+    };
+  } else {
+    rootRoute = {
+      name: config.app.route.welcome,
+      replace: true
+    };
+  }
+
+  return rootRoute;
+}
+
+function checkAuthorization(route) {
   let isAuthorized = true;
 
   if (route.matched.some(record => record.meta.requiresAuth)
-    && (!appStore.getters.isUserAuthenticated)) {
+    && (!store.getters.isUserAuthenticated)) {
     isAuthorized = false;
   }
 
@@ -23,7 +42,12 @@ function checkAuthorization(route, appStore) {
 }
 
 router.beforeEach((to, from, next) => {
-  if (!checkAuthorization(to, store)) {
+  // Gère la redirection de la racine
+  if (to.name === 'root') {
+    next(getRootRoute());
+  }
+  // Vérifie l'authorisation de l'utilisateur
+  if (!checkAuthorization(to)) {
     next({
       name: 'unauthorized',
       replace: true,

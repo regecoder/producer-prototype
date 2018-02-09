@@ -1,4 +1,4 @@
-import { store, config } from 'App';
+// import { store, config } from 'App';
 
 import { authService } from './services';
 
@@ -11,23 +11,7 @@ export default [
   // Racine
   {
     path: '/',
-    name: 'root',
-    beforeEnter: (to, from, next) => {
-      if (store.getters.isUserAuthenticated) {
-        next({
-          name: config.app.route.loginSuccess,
-          replace: true
-        });
-      } else {
-        next({
-          name: config.app.route.welcome,
-          replace: true
-        });
-      }
-    },
-    redirect: {
-      name: 'videos-add'
-    }
+    name: 'root'
   },
   // Welcome
   {
