@@ -9,16 +9,21 @@
 }
 
 .form {
+  border-top: medium solid #00c0ef;
   // margin: 0 auto;
   max-width: 65em;
   min-width: 30em;
+  padding: 2rem 0;
   width: 65vw;
 }
 
-.form-field-panel {
-  border-top: medium solid #00c0ef;
-  margin-bottom: 2rem;
-  padding: 2rem 0;
+// Gouttière verticale des panneaux de formulaire
+.form-panel {
+  margin-bottom: 4rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .form-panel-title {
@@ -27,6 +32,7 @@
   text-transform: uppercase;
 }
 
+// Gouttière verticale des sections de formulaire
 .form-section {
   margin-bottom: 4rem;
 
@@ -51,8 +57,10 @@
 
   }
 
-  input[type='date'] {
-    width: 10em;
+  input {
+    &[type='date'] {
+      width: 10em;
+    }
   }
 }
 
@@ -61,7 +69,7 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  width: 100%;
+  // width: 100%;
 
   button {
     background-color: #00c0ef;

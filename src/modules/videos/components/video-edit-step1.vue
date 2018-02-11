@@ -1,7 +1,7 @@
 <template lang="pug">
   .component
     form.form(name="show-form" @submit.prevent="")
-      .form-field-panel
+      .form-panel.form-input-panel
         .form-panel-title Spectacle
         .form-section
           p.form-field
@@ -24,7 +24,7 @@
           p.form-field
             label(for="recording-location") Lieu de captation
             input(type="text" id="recording-location" name="recording-location")
-      .form-command-panel
+      .form-panel.form-command-panel
         button(type="button" @click="requestNextStep()") Je passe à l'étape suivante
 </template>
 

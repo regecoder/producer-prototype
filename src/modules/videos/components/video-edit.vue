@@ -1,5 +1,5 @@
 <template lang="pug">
-  #video-edit
+  .component
     .form-title Nouvelle video
     router-view
 </template>

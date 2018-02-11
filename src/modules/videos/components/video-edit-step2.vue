@@ -1,7 +1,7 @@
 <template lang="pug">
   .component
     form.form(name="show-form" @submit.prevent="")
-      .form-field-panel
+      .form-panel.form-input-panel
         .form-panel-title Production
         .form-section
           p.form-field
@@ -13,7 +13,7 @@
           p.form-field
             label(for="email") email de contact
             input(type="email" id="email" name="email")
-      .form-command-panel
+      .form-panel.form-command-panel
         button(type="button" @click="requestNextStep()") Je passe à l'étape suivante
         router-link(:to="getPreviousStep()" replace) Je reviens à l'étape précédente
 </template>
