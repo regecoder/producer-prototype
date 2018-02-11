@@ -6,10 +6,10 @@
         .form-section
           p.form-field
             label(for="name") Nom du spectacle
-            input(type="text" id="name" name="name")
+            input(type="text" id="name" name="name" v-model="show.name")
           p.form-field
             label(for="author") Auteur, Compagnie
-            input(type="text" id="author" name="author")
+            input(type="text" id="author" name="author" v-model="show.author")
           p.form-field
             label(for="domain") Domaine
             select(id="domain" name="domain")
@@ -34,17 +34,26 @@ export default {
   data() {
     return {
       requestNextStep: function () {
+        save(this);
         this.$router.push({
           name: 'videos-add-step2'
         });
       }
     };
   },
+  computed: {
+    show: function () {
+      return this.$store.state.video.show;
+    }
+  },
   created: function () {
     // document.title = this.name;
   }
 };
-</script>
 
-<style scoped>
-</style>
+function save(self) {
+  self.$store.commit('setVideoShow', self.show);
+}
+
+// export default vm;
+</script>
