@@ -1,12 +1,13 @@
 export default {
   state: {
-    show: {}
+    show: {},
+    production: {}
   },
   getters: {
   },
   mutations: {
-    setVideoShow: (state, show) => {
-      state.show = show;
+    setVideoData: (state, payload) => {
+      state[payload.key] = payload.value;
     }
   },
   actions: {

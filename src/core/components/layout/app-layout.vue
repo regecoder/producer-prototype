@@ -1,5 +1,5 @@
 <template lang="pug">
-  #app-layout.layout
+  .layout
     app-header.header
     router-view.content
 </template>
