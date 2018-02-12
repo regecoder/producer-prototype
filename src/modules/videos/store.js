@@ -1,7 +1,12 @@
 export default {
   state: {
     show: {},
-    production: {}
+    production: {},
+    exploitation: {
+      authorsSocieties: {
+        sacem: true
+      }
+    }
   },
   getters: {
   },

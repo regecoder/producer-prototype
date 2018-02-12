@@ -14,8 +14,8 @@
             label(for="email") email de contact
             input(type="email" id="email" v-model="model.email")
       .form-panel.form-command-panel
-        button(type="button" @click="onNextStep()") Je passe à l'étape suivante
-        router-link(:to="onPreviousStep()" replace) Je reviens à l'étape précédente
+        button(type="button" @click="handleNextStep()") Je passe à l'étape suivante
+        router-link(:to="getPreviousStep()" replace) Je reviens à l'étape précédente
 </template>
 
 <script>

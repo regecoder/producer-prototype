@@ -64,6 +64,35 @@
   }
 }
 
+.form-field-checkbox {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-bottom: 1rem;
+  width: 30rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  input {
+    margin-right: 1rem;
+    margin-top: 0.3rem;
+  }
+
+  label {
+    color: #000;
+    display: block;
+    flex: 1;
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+
+  .tag {
+    font-size: 2rem;
+    text-align: right;
+  }
+}
+
 .form-command-panel {
   align-items: center;
   display: flex;

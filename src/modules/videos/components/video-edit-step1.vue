@@ -25,7 +25,7 @@
             label(for="recording-location") Lieu de captation
             input(type="text" id="recording-location" v-model="model.recordingLocation")
       .form-panel.form-command-panel
-        button(type="button" @click="onNextStep()") Je passe à l'étape suivante
+        button(type="button" @click="handleNextStep()") Je passe à l'étape suivante
 </template>
 
 <script>

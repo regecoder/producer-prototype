@@ -1,7 +1,7 @@
 export default {
   methods: {
-    onNextStep,
-    onPreviousStep
+    handleNextStep,
+    getPreviousStep
   },
   computed: {
     model: function () {
@@ -20,14 +20,14 @@ function getPreviousStepName(currentStep) {
   return previousStepName;
 }
 
-function onNextStep() {
+function handleNextStep() {
   save(this);
   this.$router.push({
     name: getNextStepName(this.step)
   });
 }
 
-function onPreviousStep() {
+function getPreviousStep() {
   return {
     name: getPreviousStepName(this.step)
   };
