@@ -1,0 +1,30 @@
+// 1. Variables
+// 2. Functions
+// 3. Mixins
+// 4. Spaceholders
+// 5. Sélecteurs
+
+.form-field-button {
+
+  button {
+    background-color: #aaa;
+    border: 1px solid transparent;
+    border-radius: 0.3em;
+    color: #333;
+    cursor: pointer;
+    font-size: 1em;
+    line-height: 1em;
+    padding: 0.5em 1em;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus {
+      color: #fff;
+    }
+
+    &[disabled] {
+      cursor: default;
+      opacity: 0.5;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+// sass-lint:disable property-sort-order
+
+// 1. Variables
+// 2. Functions
+// 3. Mixins
+// 4. Spaceholders
+
+// 5. Sélecteurs
+.form {
+  // Dimensions
+  min-width: 30em;
+  max-width: 65em;
+  width: 65%;
+  // Typographie
+  font-size: 1.4em;
+}
+
+.form-title {
+  // Espacement
+  margin-bottom: 0.5em;
+  // Typographie
+  font-size: 2.5em;
+  text-transform: uppercase;
+  // Décoration
+  padding-bottom: 0.2em;
+  border-bottom: medium solid #00c0ef;
+}
+
+// Espacement
+.form-section {
+  margin-bottom: 2em;
+}

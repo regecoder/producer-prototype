@@ -1,21 +1,21 @@
 <template lang="pug">
-  .component
-    form.form(name="show-form" @submit.prevent="")
-      .form-panel
-        .form-panel-title Production
-        .form-section
-          p.form-field
-            label(for="producer") Société de production
-            input(type="text" id="producer" v-model="model.producer")
-          p.form-field
-            label(for="contact") Nom du contact
-            input(type="text" id="contact" v-model="model.contact")
-          p.form-field
-            label(for="email") email de contact
-            input(type="email" id="email" v-model="model.email")
-      .form-panel.form-command-panel
-        button(type="button" @click="handleNextStep()") Je passe à l'étape suivante
-        router-link(:to="getPreviousStep()" replace) Je reviens à l'étape précédente
+  .form
+    .form-title Nouvelle vidéo
+    form(name="show-form" @submit.prevent="")
+    .form-section
+      .form-section-title Production
+      .form-row.form-field-text
+        label(for="producer") Société de production
+        input(type="text" id="producer" v-model="model.producer")
+      .form-row.form-field-text
+        label(for="contact") Nom du contact
+        input(type="text" id="contact" v-model="model.contact")
+      .form-row.form-field-text
+        label(for="email") email de contact
+        input(type="email" id="email" v-model="model.email")
+    .form-command-panel
+      button(type="button" @click="handlePreviousStep()") Etape précédente
+      button(type="button" @click="handleNextStep()") Je passe à l'étape suivante
 </template>
 
 <script>

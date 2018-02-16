@@ -1,11 +1,42 @@
-// BASE
-// Variables globales
-@import 'base/settings';
-// Styles globaux
-@import 'base/styles';
+@charset 'utf-8';
 
-// LAYOUT
-// Grille
+// Ordre des imports:
+// 1. abstracts
+// 2. vendors
+// 3. base
+// 4. layout
+// 5. components
+// 6. pages
+
+// 1. abstracts
+@import 'abstracts/variables';
+
+// 2. vendors
+@import 'vendors/vendor.config';
+@import 'vendors/fontawesome/scss/fontawesome';
+@import 'vendors/fontawesome/scss/fa-solid';
+
+// 3. base
+@import 'base/global';
+@import 'base/helpers';
+
+// 4. layout
 @import 'layout/grid';
-// Styles
-@import 'layout/styles';
+@import 'layout/header';
+
+// 5. components
+
+// Basics
+@import 'components/icon';
+
+// Forms
+@import 'components/forms/form-field-text';
+@import 'components/forms/form-field-select';
+@import 'components/forms/form-field-percentage';
+@import 'components/forms/form-field-checkbox';
+@import 'components/forms/form-field-command';
+@import 'components/forms/form-field-button';
+@import 'components/forms/form-row-checkbox';
+@import 'components/forms/form-command-panel';
+@import 'components/forms/form-section';
+@import 'components/forms/form';

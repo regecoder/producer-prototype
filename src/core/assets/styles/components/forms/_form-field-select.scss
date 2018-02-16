@@ -1,0 +1,15 @@
+// 1. Variables
+// 2. Functions
+// 3. Mixins
+// 4. Spaceholders
+
+// 5. Sélecteurs
+
+.form-field-select {
+  @extend %form-field-text;
+
+  select {
+    font-size: 1em;
+
+  }
+}

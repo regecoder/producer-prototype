@@ -1,0 +1,40 @@
+// 1. Variables
+// 2. Functions
+// 3. Mixins
+// 4. Spaceholders
+// 5. Sélecteurs
+
+%form-field-checkbox {
+  // Apparence
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  // Dimensionnement
+  width: 100%;
+
+  input {
+    &[type='checkbox'] {
+      position: relative;
+      top: 0.1em;
+    }
+  }
+
+  label {
+    color: #000;
+    margin-left: 0.5em;
+  }
+}
+
+.form-field-checkbox {
+  @extend %form-field-checkbox;
+}
+
+.form-field-checkbox_edit {
+  @extend %form-field-checkbox;
+
+  // input {
+  //   &[type='text'] {
+  //     width: 90%;
+  //   }
+  // }
+}

@@ -1,0 +1,46 @@
+// sass-lint:disable property-sort-order
+
+// 1. Variables
+// 2. Functions
+// 3. Mixins
+
+// 4. Spaceholders
+%form-command-button {
+  background-color: #00c0ef;
+  border: 1px solid transparent;
+  border-radius: 0.3em;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 2rem;
+  line-height: 1em;
+  opacity: 0.8;
+  padding: 0.5em 1em;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
+
+// 5. Sélecteurs
+.form-command-panel {
+  // Apparence
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  // Position
+  position: relative;
+
+  button {
+    @extend %form-command-button;
+
+    &:last-of-type {
+      // Position
+      position: absolute;
+      right: 0;
+    }
+  }
+}

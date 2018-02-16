@@ -1,12 +1,13 @@
 <template lang="pug">
-  .component
-    form.form(name="show-form" @submit.prevent="")
-      .form-panel
-        .form-panel-title Sociétés d'auteurs
-        .form-section
-          .form-field.form-field-checkbox(
-            v-for="(authorsSociety, index) in defaultAuthorsSocieties"
-          )
+  .form
+    .form-title Nouvelle vidéo
+    form(name="show-form" @submit.prevent="")
+      .form-section
+        .form-section-title Sociétés d'auteurs
+        .form-row.form-row-checkbox(
+          v-for="(authorsSociety, index) in defaultAuthorsSocieties"
+        )
+          .form-field-checkbox
             input(
               type="checkbox"
               :id="getAuthorsSocietyId(index)"
@@ -14,23 +15,29 @@
               v-model="model.authorsSocieties[authorsSociety.label]"
             )
             label(:for="getAuthorsSocietyId(index)") {{ authorsSociety.label }}
-            .percentage {{ authorsSociety.percentage }}
+          .form-field-percentage
+            .text {{ authorsSociety.percentage }}
             .unit %
-          .form-field.form-field-checkbox.form-field-checkbox-custom(
-            v-for="(authorsSociety, index) in customAuthorsSocieties"
-          )
+        .form-row.form-row-checkbox_edit(
+          v-for="(authorsSociety, index) in customAuthorsSocieties"
+        )
+          .form-field-checkbox_edit
             input(
               type="checkbox"
               :value="authorsSociety.label"
               v-model="authorsSociety.checked"
             )
-            input.input-label(type="text" v-model="authorsSociety.label")
-            input.input-percentage(type="text" v-model="authorsSociety.percentage")
+            input(type="text" v-model="authorsSociety.label")
+          .form-field-percentage
+            input(type="text" v-model="authorsSociety.percentage")
             .unit %
+          .form-field-command
+            .icon.icon-delete
+        .form-row.form-field-button
           button(type="button" @click="addCustomAuthorsSociety()") Ajouter une société d'auteurs
-      .form-panel.form-command-panel
-        button(type="button" @click="preHandleNextStep()") Je passe à l'étape suivante
-        router-link(:to="getPreviousStep()" replace) Je reviens à l'étape précédente
+    .form-command-panel
+      button(type="button" @click="handlePreviousStep()") Etape précédente
+      button(type="button" @click="preHandleNextStep()") Je passe à l'étape suivante
 </template>
 
 <script>

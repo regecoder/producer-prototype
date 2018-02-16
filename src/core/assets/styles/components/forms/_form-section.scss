@@ -1,0 +1,24 @@
+// 1. Variables
+// 2. Functions
+// 3. Mixins
+// 4. Spaceholders
+// 5. Sélecteurs
+
+// .form-section {
+// }
+
+.form-section-title {
+  font-size: 2em;
+  // Espacement
+  margin-bottom: 0.5em;
+}
+
+.form-row {
+  &:not(:last-child) {
+    margin-bottom: 1em;
+  }
+}
+
+.form-row-button {
+  margin-top: 1em;
+}

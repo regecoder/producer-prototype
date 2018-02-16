@@ -1,0 +1,20 @@
+// sass-lint:disable property-sort-order
+
+// 1. Variables
+// 2. Functions
+// 3. Mixins
+// 4. Spaceholders
+
+// 5. Sélecteurs
+
+.form-field-command {
+  position: relative;
+  left: 1em;
+
+  .icon {
+    // Position
+    position: absolute;
+    top: O;
+    left: 0;
+  }
+}

@@ -1,7 +1,5 @@
 <template lang="pug">
-  .component
-    .form-title Nouvelle vidéo
-    router-view
+  router-view
 </template>
 
 <script>
@@ -11,7 +9,7 @@ export default {
     };
   },
   created: function () {
-    document.title = 'Scenso Producer: Nouvelle vidéo';
+    document.title = 'Scenso Producer';
   }
 };
 </script>

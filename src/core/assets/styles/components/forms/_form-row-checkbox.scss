@@ -1,0 +1,27 @@
+// 1. Variables
+// 2. Functions
+
+// 3. Spaceholders
+%form-row-checkbox {
+  // Apparence
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  // Dimensionnement
+  width: 40%;
+}
+
+// 5. Sélecteurs
+.form-row-checkbox {
+  @extend %form-row-checkbox ;
+}
+
+.form-row-checkbox_edit {
+  @extend %form-row-checkbox;
+
+  input {
+    &:not(:first-child) {
+      margin-left: 0.5em;
+    }
+  }
+}
