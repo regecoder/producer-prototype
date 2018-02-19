@@ -41,3 +41,11 @@ $icon-fa-map: (
     @include icon(nth($item, 1));
   }
 }
+
+.icon-delete {
+  &:hover,
+  &:focus {
+    color: $color-icon-delete;
+    cursor: pointer;
+  }
+}
