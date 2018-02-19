@@ -5,45 +5,43 @@
       .form-section
         .form-section-title Sociétés d'auteurs
         .form-row.form-row-checkbox(
-          v-for="(authorsSociety, index) in defaultAuthorsSocieties"
+          v-for="(authorSociety, index) in defaultAuthorSocieties"
         )
           .form-field-checkbox
             input(
               type="checkbox"
-              :id="getAuthorsSocietyId(index)"
-              :value="authorsSociety.label"
-              v-model="model.authorsSocieties[authorsSociety.label]"
+              :id="'author-society' + index"
+              v-model="authorSociety.checked"
             )
-            label(:for="getAuthorsSocietyId(index)") {{ authorsSociety.label }}
+            label(:for="'author-society' + index") {{ authorSociety.label }}
           .form-field-percentage
-            .text {{ authorsSociety.percentage }}
+            .text {{ authorSociety.percentage }}
             .unit %
         .form-row.form-row-checkbox_edit(
-          v-for="(authorsSociety, index) in customAuthorsSocieties"
+          v-for="(authorSociety, index) in customAuthorSocieties"
         )
           .form-field-checkbox_edit
             input(
               type="checkbox"
-              :value="authorsSociety.label"
-              v-model="authorsSociety.checked"
+              v-model="authorSociety.checked"
             )
-            input(type="text" v-model="authorsSociety.label")
+            input(type="text" v-model="authorSociety.label")
           .form-field-percentage
-            input(type="text" v-model="authorsSociety.percentage")
+            input(type="text" v-model="authorSociety.percentage")
             .unit %
           .form-field-command
-            .icon.icon-delete
+            .icon.icon-delete(@click="deleteCustomSociety(index)")
         .form-row.form-field-button
-          button(type="button" @click="addCustomAuthorsSociety()") Ajouter une société d'auteurs
+          button(type="button" @click="addCustomSociety()") Ajouter une société d'auteurs
     .form-command-panel
-      button(type="button" @click="handlePreviousStep()") Etape précédente
+      button(type="button" @click="preHandlePreviousStep()") Etape précédente
       button(type="button" @click="preHandleNextStep()") Je passe à l'étape suivante
 </template>
 
 <script>
 import videoEditMixin from 'Modules/videos/mixins/video-edit.mixin';
 
-const defaultAuthorsSocieties = [
+const defaultAuthorSocieties = [
   {
     label: 'Copie privée',
     percentage: 2
@@ -62,7 +60,7 @@ const defaultAuthorsSocieties = [
   }
 ];
 
-const customAuthorsSocieties = [];
+const customAuthorSocieties = [];
 
 export default {
   mixins: [
@@ -75,44 +73,74 @@ export default {
         order: 3,
         storeKey: 'exploitation'
       },
-      defaultAuthorsSocieties,
-      customAuthorsSocieties
+      defaultAuthorSocieties,
+      customAuthorSocieties
     };
   },
 
   created: function () {
-    getCustomAuthorsSocieties(this);
+    loadAuthorSocieties(this.model.authorSocieties);
   },
 
   methods: {
-    addCustomAuthorsSociety: function () {
-      customAuthorsSocieties.push({
+    addCustomSociety: function () {
+      customAuthorSocieties.push({
         checked: true
       });
     },
 
-    getAuthorsSocietyId: function (index) {
-      return `authors-society${index}`;
+    deleteCustomSociety: function (index) {
+      customAuthorSocieties.splice(index, 1);
     },
 
     preHandleNextStep: function () {
-      // Supprime les sociétés d'auteurs non cochées (=false) du modèle
-      deleteUnselectedAuthorsSocieties(this.model.authorsSocieties);
+      saveAuthorSocieties(this.model.authorSocieties);
       this.handleNextStep();
+    },
+
+    preHandlePreviousStep: function () {
+      saveAuthorSocieties(this.model.authorSocieties);
+      this.handlePreviousStep();
     }
   }
 };
 
-function deleteUnselectedAuthorsSocieties(authorsSocietiesData) {
-  const keys = Object.keys(authorsSocietiesData);
-  keys.forEach((element) => {
-    if (!authorsSocietiesData[element]) {
-      delete authorsSocietiesData[element];
+function loadAuthorSocieties(modelObject) {
+  const properties = Object.keys(modelObject);
+  // Supprime toutes les sociétés personnalisées dans la vue
+  customAuthorSocieties.splice(0);
+  properties.forEach((property) => {
+    const index = defaultAuthorSocieties.findIndex(
+      element => element.label === property
+    );
+    if (index > -1) {
+      defaultAuthorSocieties[index].checked = true;
+    } else {
+      customAuthorSocieties.push({
+        label: property,
+        checked: true
+      });
     }
   });
 }
 
-function getCustomAuthorsSocieties(self) {
-  console.log(self.$store.state.video);
+function saveAuthorSocieties(modelObject) {
+  // Supprime toutes les sociétés existantes dans le modèle
+  const properties = Object.keys(modelObject);
+  properties.forEach((property) => {
+    delete modelObject[property];
+  });
+  // Ajoute les sociétés sélectionnées
+  defaultAuthorSocieties.forEach((society) => {
+    if (society.checked) {
+      modelObject[society.label] = true;
+    }
+  });
+  // Ajoute les sociétés personnalisées
+  customAuthorSocieties.forEach((society) => {
+    if (society.checked && typeof society.label !== 'undefined' && society.label !== '') {
+      modelObject[society.label] = true;
+    }
+  });
 }
 </script>

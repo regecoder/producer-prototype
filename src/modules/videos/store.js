@@ -3,7 +3,7 @@ export default {
     show: {},
     production: {},
     exploitation: {
-      authorsSocieties: {}
+      authorSocieties: {}
     }
   },
   getters: {
