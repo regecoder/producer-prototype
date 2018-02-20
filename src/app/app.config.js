@@ -4,7 +4,7 @@
 const appConfig = {
   route: {
     welcome: 'welcome',
-    loginSuccess: 'videos-add',
+    loginSuccess: 'video-add',
     loginError: 'unauthorized',
     logout: 'welcome'
   }

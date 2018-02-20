@@ -11,12 +11,12 @@ export default {
 };
 
 function getNextStepName(currentStep) {
-  const nextStepName = `videos-add-step${currentStep.order + 1}`;
+  const nextStepName = `video-add-step${currentStep.order + 1}`;
   return nextStepName;
 }
 
 function getPreviousStepName(currentStep) {
-  const previousStepName = `videos-add-step${currentStep.order - 1}`;
+  const previousStepName = `video-add-step${currentStep.order - 1}`;
   return previousStepName;
 }
 

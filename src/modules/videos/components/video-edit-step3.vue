@@ -63,11 +63,11 @@
             v-model="model.territory.scope"
           )
           label(for="te-fr") France
-        .form-block(v-if="teShowIncluded")
+        .form-block(v-show="includedTerritoriesEnabled")
           .form-block-title Territoires à inclure
           .form-field-button
-            button(type="button" @click="") Ajouter
-        .form-block(v-if="teShowExcluded")
+            button(type="button" @click="addIncludedTerritories()") Ajouter
+        .form-block(v-show="excludedTerritoriesEnabled")
           .form-block-title Territoires à exclure
           .form-field-button
             button(type="button" @click="") Ajouter
@@ -119,13 +119,13 @@ export default {
   },
 
   computed: {
-    teShowExcluded: function () {
+    excludedTerritoriesEnabled: function () {
       return (
         this.model.territory.scope === 'world'
       );
     },
 
-    teShowIncluded: function () {
+    includedTerritoriesEnabled: function () {
       return (
         this.model.territory.scope === 'france'
       );
@@ -141,6 +141,10 @@ export default {
       customAuthorSocieties.push({
         checked: true
       });
+    },
+
+    addIncludedTerritories: function () {
+      // https://www.apple.com/choose-country-region/
     },
 
     deleteCustomSociety: function (index) {

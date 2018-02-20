@@ -1,3 +1,5 @@
+// sass-lint:disable property-sort-order
+
 // 1. Variables
 $icon-fa-css-prefix: 'fa';
 $icon-fa-map: (
@@ -27,12 +29,6 @@ $icon-fa-map: (
 // 4. Spaceholders
 %icon {
   @extend .#{$icon-fa-css-prefix};
-  position: relative;
-
-  &::before {
-    position: absolute;
-    top: 0.3em;
-  }
 }
 
 // 5. Sélecteurs

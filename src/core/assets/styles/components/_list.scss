@@ -1,0 +1,65 @@
+// sass-lint:disable property-sort-order
+
+// 1. Variables
+// 2. Functions
+// 3. Mixins
+
+// 4. Spaceholders
+
+%table-cell {
+  // Apparence
+  display: table-cell;
+
+  // Dimension
+  padding: 0.5em 1em;
+}
+
+%table-row {
+  // Apparence
+  display: table-row;
+  // Decoration
+  border-bottom: 1px solid #ccc;
+  // background-color: #aaa;
+
+}
+
+// 5. Sélecteurs
+
+.list {
+  // Apparence
+  display: table;
+  border-collapse: collapse;
+  // Typographie
+  font-size: 1em;
+  // Espacement
+  margin-bottom: 2em;
+
+  .percentage {
+    text-align: right;
+  }
+
+}
+
+.list-header,
+.list-content {
+  @extend %table-row;
+
+  > div {
+    @extend %table-cell;
+  }
+}
+
+.list-header {
+  color: #999;
+}
+
+.list-content {
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+
+  &.active {
+    background-color: #aaa;
+  }
+}
