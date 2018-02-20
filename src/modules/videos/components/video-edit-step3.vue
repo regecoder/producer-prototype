@@ -1,6 +1,8 @@
 <template lang="pug">
   .form
-    .form-title Nouvelle vidéo
+    .form-title-panel
+      .form-title Nouvelle vidéo
+      .form-subtitle Droits d'exploitation
     form(name="show-form" @submit.prevent="")
       .form-section
         .form-section-title Sociétés d'auteurs
@@ -33,6 +35,16 @@
             .icon.icon-delete(@click="deleteCustomSociety(index)")
         .form-row.form-field-button
           button(type="button" @click="addCustomSociety()") Ajouter une société d'auteurs
+      .form-section
+        .form-section-title Producteur
+        .form-row.form-field-text
+          label(for="begin-date") Date de début des droits
+          input(type="date" id="begin-date" v-model="model.producer.beginDate")
+        .form-row.form-field-text
+          label(for="end-date") Date de fin des droits
+          input(type="date" id="end-date" v-model="model.producer.endDate")
+
+
     .form-command-panel
       button(type="button" @click="preHandlePreviousStep()") Etape précédente
       button(type="button" @click="preHandleNextStep()") Je passe à l'étape suivante

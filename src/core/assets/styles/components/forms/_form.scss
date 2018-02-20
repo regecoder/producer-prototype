@@ -15,15 +15,28 @@
   font-size: 1.4em;
 }
 
-.form-title {
+.form-title-panel {
+  // Apparence
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
   // Espacement
-  margin-bottom: 0.5em;
-  // Typographie
-  font-size: 2.5em;
-  text-transform: uppercase;
+  margin-bottom: 1.5em;
   // Décoration
   padding-bottom: 0.2em;
   border-bottom: medium solid #00c0ef;
+}
+
+.form-title {
+  // Typographie
+  font-size: 2.5em;
+  text-transform: uppercase;
+}
+
+// Typographie
+.form-subtitle {
+  font-size: 1.5em;
 }
 
 // Espacement

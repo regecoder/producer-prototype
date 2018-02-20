@@ -8,3 +8,4 @@ rules:
   no-ids: 0
   placeholder-in-extend: 0
   space-before-colon: 0
+  class-name-format: 0
