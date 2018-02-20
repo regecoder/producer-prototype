@@ -1,7 +1,7 @@
 <template lang="pug">
   .form
-    .form-title-panel
-      .form-title Nouvelle vidéo
+    .form-panel-title
+      .form-title Nouvelle oeuvre
       .form-subtitle Production
     form(name="show-form" @submit.prevent="")
       .form-section
@@ -15,7 +15,7 @@
         .form-row.form-field-text
           label(for="email") email de contact
           input(type="email" id="email" v-model="model.email")
-    .form-command-panel
+    .form-panel-command
       button(type="button" @click="handlePreviousStep()") Etape précédente
       button(type="button" @click="handleNextStep()") Je passe à l'étape suivante
 </template>

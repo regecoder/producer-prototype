@@ -4,7 +4,12 @@ export default {
     production: {},
     exploitation: {
       authorSocieties: {},
-      producer: {}
+      duration: {},
+      territory: {
+        scope: 'world',
+        excluded: [],
+        included: []
+      }
     }
   },
   getters: {

@@ -5,9 +5,8 @@
 // 4. Spaceholders
 
 %form-field-text {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  // Apparence
+  @extend %form-field-column;
 
   label {
     color: #999;

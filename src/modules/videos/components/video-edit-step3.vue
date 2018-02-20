@@ -1,7 +1,7 @@
 <template lang="pug">
   .form
-    .form-title-panel
-      .form-title Nouvelle vidéo
+    .form-panel-title
+      .form-title Nouvelle oeuvre
       .form-subtitle Droits d'exploitation
     form(name="show-form" @submit.prevent="")
       .form-section
@@ -12,10 +12,10 @@
           .form-field-checkbox
             input(
               type="checkbox"
-              :id="'author-society' + index"
+              :id="'as-' + index"
               v-model="authorSociety.checked"
             )
-            label(:for="'author-society' + index") {{ authorSociety.label }}
+            label(:for="'as' + index") {{ authorSociety.label }}
           .form-field-percentage
             .text {{ authorSociety.percentage }}
             .unit %
@@ -34,18 +34,46 @@
           .form-field-command
             .icon.icon-delete(@click="deleteCustomSociety(index)")
         .form-row.form-field-button
-          button(type="button" @click="addCustomSociety()") Ajouter une société d'auteurs
+          button(type="button" @click="addCustomSociety()") Ajouter
       .form-section
-        .form-section-title Producteur
+        .form-section-title Durée
         .form-row.form-field-text
           label(for="begin-date") Date de début des droits
-          input(type="date" id="begin-date" v-model="model.producer.beginDate")
+          input(type="date" id="begin-date" v-model="model.duration.beginDate")
         .form-row.form-field-text
           label(for="end-date") Date de fin des droits
-          input(type="date" id="end-date" v-model="model.producer.endDate")
+          input(type="date" id="end-date" v-model="model.duration.endDate")
+      .form-section
+        .form-section-title Territoires d'exploitation
+        .form-row.form-field-radio
+          input(
+            type="radio"
+            name="te-scope"
+            value="world"
+            id="te-wr"
+            v-model="model.territory.scope"
+          )
+          label(for="te-wr") Monde
+        .form-row.form-field-radio
+          input(
+            type="radio"
+            name="te-scope"
+            value="france"
+            id="te-fr"
+            v-model="model.territory.scope"
+          )
+          label(for="te-fr") France
+        .form-block(v-if="teShowIncluded")
+          .form-block-title Territoires à inclure
+          .form-field-button
+            button(type="button" @click="") Ajouter
+        .form-block(v-if="teShowExcluded")
+          .form-block-title Territoires à exclure
+          .form-field-button
+            button(type="button" @click="") Ajouter
 
 
-    .form-command-panel
+    .form-panel-command
       button(type="button" @click="preHandlePreviousStep()") Etape précédente
       button(type="button" @click="preHandleNextStep()") Je passe à l'étape suivante
 </template>
@@ -88,6 +116,20 @@ export default {
       defaultAuthorSocieties,
       customAuthorSocieties
     };
+  },
+
+  computed: {
+    teShowExcluded: function () {
+      return (
+        this.model.territory.scope === 'world'
+      );
+    },
+
+    teShowIncluded: function () {
+      return (
+        this.model.territory.scope === 'france'
+      );
+    }
   },
 
   created: function () {

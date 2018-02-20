@@ -13,6 +13,12 @@
   margin-bottom: 0.5em;
 }
 
+.form-block {
+  &:not(:last-child) {
+    margin-bottom: 1em;
+  }
+}
+
 .form-row {
   &:not(:last-child) {
     margin-bottom: 1em;

@@ -6,9 +6,7 @@
 
 %form-field-checkbox {
   // Apparence
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  @extend %form-field-row;
   // Dimensionnement
   width: 100%;
 

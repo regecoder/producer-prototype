@@ -9,9 +9,7 @@
 
 .form-field-percentage {
   // Apparence
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  @extend %form-field-row;
   // Typographie
   // font-size: 1em;
 

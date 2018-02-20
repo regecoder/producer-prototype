@@ -1,7 +1,7 @@
 <template lang="pug">
 .form
-    .form-title-panel
-      .form-title Nouvelle vidéo
+    .form-panel-title
+      .form-title Nouvelle oeuvre
       .form-subtitle Spectacle
     form(name="show-form" @submit.prevent="")
       .form-section
@@ -27,7 +27,7 @@
         .form-row.form-field-text
           label(for="recording-location") Lieu de captation
           input(type="text" id="recording-location" v-model="model.recordingLocation")
-    .form-command-panel
+    .form-panel-command
       button(type="button" @click="handleNextStep()") Je passe à l'étape suivante
 </template>
 
