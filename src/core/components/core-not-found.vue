@@ -1,6 +1,6 @@
 <template lang="pug">
-  #app-not-found
-    .name app-not-found
+  .component
+    .name core-not-found
     .path {{path}}
 </template>
 

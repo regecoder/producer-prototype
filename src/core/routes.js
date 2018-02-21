@@ -2,10 +2,10 @@
 
 import { authService } from './services';
 
-import AppWelcome from './components/views/app-welcome';
-import AppLoginCallback from './components/views/app-login-callback';
-import AppUnauthorized from './components/views/app-unauthorized';
-import AppNotFound from './components/views/app-not-found';
+import Welcome from './components/core-welcome';
+import LoginCallback from './components/core-login-callback';
+import Unauthorized from './components/core-unauthorized';
+import NotFound from './components/core-not-found';
 
 export default [
   // Racine
@@ -17,7 +17,7 @@ export default [
   {
     path: '/welcome',
     name: 'welcome',
-    component: AppWelcome
+    component: Welcome
   },
   // Login
   {
@@ -29,17 +29,17 @@ export default [
   },
   {
     path: '/login/callback',
-    component: AppLoginCallback
+    component: LoginCallback
   },
   // Non autorisé
   {
     path: '/unauthorized',
     name: 'unauthorized',
-    component: AppUnauthorized
+    component: Unauthorized
   },
   // Routes non résolues
   {
     path: '*',
-    component: AppNotFound
+    component: NotFound
   }
 ];

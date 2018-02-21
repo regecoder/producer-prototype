@@ -1,5 +1,5 @@
 <template lang="pug">
-  .form-territories
+  .component
     .form-row.form-field-radio
       input(
         type="radio"

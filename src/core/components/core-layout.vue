@@ -1,15 +1,15 @@
 <template lang="pug">
   .layout
-    app-header
+    core-header
     router-view
 </template>
 
 <script>
-import AppHeader from './app-header';
+import CoreHeader from './core-header';
 
 export default {
   components: {
-    AppHeader
+    CoreHeader
   },
   data() {
     return {

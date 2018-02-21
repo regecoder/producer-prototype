@@ -1,6 +1,6 @@
 <template lang="pug">
   #app
-    app-layout
+    core-layout
 </template>
 
 <script>
@@ -8,11 +8,11 @@
 // eslint-disable-next-line no-unused-vars
 import { authService } from 'Core/services';
 
-import AppLayout from 'Core/components/layout/app-layout';
+import CoreLayout from 'Core/components/core-layout';
 
 export default {
   components: {
-    AppLayout
+    CoreLayout
   }
 };
 </script>

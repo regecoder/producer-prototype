@@ -1,11 +1,14 @@
 <template lang="pug">
-  #app-welcome
-    .name app-welcome
-    button(@click="login()") LOGIN
+  .component
+    .name core-unauthorized
+    div(v-if="isUserAuthenticated")
+      button(@click="logout()") LOGOUT
+    div(v-else)
+      button(@click="login()") LOGIN
 </template>
 
 <script>
-import loginMixin from 'Core/mixins/app-login.mixin';
+import loginMixin from 'Core/mixins/core-login.mixin';
 
 export default {
   mixins: [

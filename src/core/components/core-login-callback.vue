@@ -1,6 +1,6 @@
 <template lang="pug">
-  #app-login-callback
-    .name app-login-callback
+  .component
+    .name core-login-callback
 </template>
 
 <script>
