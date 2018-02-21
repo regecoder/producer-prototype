@@ -36,7 +36,7 @@ router.beforeEach((to, from, next) => {
 function getRootRoute() {
   let rootRoute;
 
-  if (store.getters.isUserAuthenticated) {
+  if (store.getters.userAuthenticated) {
     rootRoute = {
       name: config.app.route.loginSuccess,
       replace: true
@@ -55,7 +55,7 @@ function checkAuthorization(route) {
   let isAuthorized = true;
 
   if (route.matched.some(record => record.meta.requiresAuth)
-    && (!store.getters.isUserAuthenticated)) {
+    && (!store.getters.userAuthenticated)) {
     isAuthorized = false;
   }
 

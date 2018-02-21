@@ -3,16 +3,16 @@ import { authService } from './services';
 export default {
   state: {
     user: {
-      isAuthenticated: false
+      authenticated: false
     }
   },
   getters: {
-    isUserAuthenticated: state =>
-      state.user.isAuthenticated
+    userAuthenticated: state =>
+      state.user.authenticated
   },
   mutations: {
-    authenticate: (state, isAuthenticated) => {
-      state.user.isAuthenticated = isAuthenticated;
+    authenticate: (state, authenticated) => {
+      state.user.authenticated = authenticated;
     }
   },
   actions: {

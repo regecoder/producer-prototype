@@ -1,7 +1,7 @@
 <template lang="pug">
   .component
     .name core-login
-    div(v-if="isUserAuthenticated")
+    div(v-if="userAuthenticated")
       button(@click="logout()") LOGOUT
     div(v-else)
       button(@click="login()") LOGIN

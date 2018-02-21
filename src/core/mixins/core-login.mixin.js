@@ -4,8 +4,8 @@ let originRoute = '';
 
 export default {
   computed: {
-    isUserAuthenticated: function () {
-      return this.$store.getters.isUserAuthenticated;
+    userAuthenticated: function () {
+      return this.$store.getters.userAuthenticated;
     }
   },
   methods: {
