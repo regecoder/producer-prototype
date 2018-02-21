@@ -14,7 +14,7 @@ class Auth0Service {
     // this.authenticate = this.authenticate.bind(this);
     // this.setSession = this.setSession.bind(this);
     // this.logout = this.logout.bind(this);
-    // this.isSessionActive = this.isSessionActive.bind(this);
+    // this.sessionActive = this.sessionActive.bind(this);
 
     // Alias
     this._configRoute = config.app.route;
@@ -74,7 +74,7 @@ class Auth0Service {
     });
   }
 
-  isSessionActive() {
+  sessionActive() {
     // Check whether the current time is past the
     // access token's expiry time
     const expiresAt = JSON.parse(localStorage.getItem('expires-at'));

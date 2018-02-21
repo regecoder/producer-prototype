@@ -17,7 +17,7 @@ export default {
   },
   actions: {
     initialize: ({ commit }) => {
-      commit('authenticate', authService.isSessionActive());
+      commit('authenticate', authService.sessionActive());
     }
   }
 };
