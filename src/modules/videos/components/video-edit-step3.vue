@@ -45,33 +45,9 @@
           input(type="date" id="end-date" v-model="model.duration.endDate")
       .form-section
         .form-section-title Territoires d'exploitation
-        .form-row.form-field-radio
-          input(
-            type="radio"
-            name="te-scope"
-            value="world"
-            id="te-wr"
-            v-model="model.territory.scope"
-          )
-          label(for="te-wr") Monde
-        .form-row.form-field-radio
-          input(
-            type="radio"
-            name="te-scope"
-            value="france"
-            id="te-fr"
-            v-model="model.territory.scope"
-          )
-          label(for="te-fr") France
-        .form-block(v-show="includedTerritoriesEnabled")
-          .form-block-title Territoires à inclure
-          .form-field-button
-            button(type="button" @click="addIncludedTerritories()") Ajouter
-        .form-block(v-show="excludedTerritoriesEnabled")
-          .form-block-title Territoires à exclure
-          .form-field-button
-            button(type="button" @click="") Ajouter
-
+        form-territories(
+          :model="model.territory"
+        )
 
     .form-panel-command
       button(type="button" @click="preHandlePreviousStep()") Etape précédente
@@ -79,6 +55,7 @@
 </template>
 
 <script>
+import formTerritoriesComponent from 'Core/components/core-form-territories';
 import videoEditMixin from 'Modules/videos/mixins/video-edit.mixin';
 
 const defaultAuthorSocieties = [
@@ -103,6 +80,10 @@ const defaultAuthorSocieties = [
 const customAuthorSocieties = [];
 
 export default {
+  components: {
+    formTerritories: formTerritoriesComponent
+  },
+
   mixins: [
     videoEditMixin
   ],
@@ -118,20 +99,6 @@ export default {
     };
   },
 
-  computed: {
-    excludedTerritoriesEnabled: function () {
-      return (
-        this.model.territory.scope === 'world'
-      );
-    },
-
-    includedTerritoriesEnabled: function () {
-      return (
-        this.model.territory.scope === 'france'
-      );
-    }
-  },
-
   created: function () {
     loadAuthorSocieties(this.model.authorSocieties);
   },
@@ -141,10 +108,6 @@ export default {
       customAuthorSocieties.push({
         checked: true
       });
-    },
-
-    addIncludedTerritories: function () {
-      // https://www.apple.com/choose-country-region/
     },
 
     deleteCustomSociety: function (index) {
