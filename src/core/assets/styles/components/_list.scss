@@ -9,7 +9,6 @@
 %table-cell {
   // Apparence
   display: table-cell;
-
   // Dimension
   padding: 0.5em 1em;
 }
@@ -19,8 +18,6 @@
   display: table-row;
   // Decoration
   border-bottom: 1px solid #ccc;
-  // background-color: #aaa;
-
 }
 
 // 5. Sélecteurs
@@ -31,13 +28,10 @@
   border-collapse: collapse;
   // Typographie
   font-size: 1em;
-  // Espacement
-  margin-bottom: 2em;
 
   .percentage {
     text-align: right;
   }
-
 }
 
 .list-header,
@@ -62,4 +56,9 @@
   &.active {
     background-color: #aaa;
   }
+}
+
+.list-command {
+  // Espacement
+  margin-top: 1em;
 }

@@ -24,5 +24,10 @@
     &[type='date'] {
       width: 10em;
     }
+
+    &[type='text'],
+    &[type='email'] {
+      min-width: 30em;
+    }
   }
 }

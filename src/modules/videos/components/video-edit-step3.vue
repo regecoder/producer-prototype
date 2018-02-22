@@ -45,7 +45,7 @@
           input(type="date" id="end-date" v-model="model.duration.endDate")
       .form-section
         .form-section-title Territoires d'exploitation
-        form-territories(
+        form-right-territory(
           :model="model.territory"
         )
 
@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import formTerritoriesComponent from 'Core/components/core-form-territories';
+import formRightTerritoryComponent from 'Core/components/core-form-right-territory';
 import videoEditMixin from 'Modules/videos/mixins/video-edit.mixin';
 
 const defaultAuthorSocieties = [
@@ -81,7 +81,7 @@ const customAuthorSocieties = [];
 
 export default {
   components: {
-    formTerritories: formTerritoriesComponent
+    formRightTerritory: formRightTerritoryComponent
   },
 
   mixins: [

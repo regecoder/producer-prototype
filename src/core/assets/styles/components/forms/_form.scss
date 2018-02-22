@@ -6,6 +6,7 @@
 // 4. Spaceholders
 
 // 5. Sélecteurs
+
 .form {
   // Dimensions
   min-width: 30em;
@@ -15,15 +16,27 @@
   font-size: 1.4em;
 }
 
+// Espacement
+
+.form-panel,
+.form-section {
+  margin-bottom: 2em;
+}
+
+.form-panel {
+  .form-section {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
 .form-panel-title {
   // Apparence
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
-  // Espacement
-  margin-bottom: 1.5em;
-  // Décoration
   padding-bottom: 0.2em;
   border-bottom: medium solid #00c0ef;
 }
@@ -34,12 +47,8 @@
   text-transform: uppercase;
 }
 
-// Typographie
 .form-subtitle {
+  // Typographie
   font-size: 1.5em;
 }
 
-// Espacement
-.form-section {
-  margin-bottom: 2em;
-}
