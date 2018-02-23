@@ -27,29 +27,38 @@
             button(type="button" @click="addCustomSociety()") Ajouter
     form(name="show-form" @submit.prevent="")
       .form-section
+        .form-section-title Titulaire
         .form-row.form-field-text
           label(for="name") Nom du titulaire
-          input(type="text" id="name")
+          input(type="text" id="name" v-model="model[0].name")
         .form-row.form-field-text
           label(for="capacity") Qualité du titulaire
-          input(type="text" id="capacity")
-      .form-section
-        .form-section-title Territoires d'exploitation
-        form-right-territory(
-          :model="model[0].territory"
-        )
+          input(type="text" id="capacity" v-model="model[0].capacity")
+        .form-row.form-field-text
+          label(for="percentage") Pourcentage
+          .form-field-percentage
+            input(type="text"  id="percentage" v-model="model[0].percentage")
+            .unit %
+      form-section-right-duration(
+        :model="model[0].duration"
+      )
+      form-section-right-territory(
+        :model="model[0].territory"
+      )
     .form-panel-command
       button(type="button" @click="handlePreviousStep()") Etape précédente
       button(type="button" @click="saveModel()") Enregistrer
 </template>
 
 <script>
-import formRightTerritoryComponent from 'Core/components/core-form-right-territory';
-import videoEditMixin from 'Modules/videos/mixins/video-edit.mixin';
+import formSectionRightDurationComponent from './video-edit-right-duration';
+import formSectionRightTerritoryComponent from './video-edit-right-territory';
+import videoEditMixin from '../mixins/video-edit.mixin';
 
 export default {
   components: {
-    formRightTerritory: formRightTerritoryComponent
+    formSectionRightDuration: formSectionRightDurationComponent,
+    formSectionRightTerritory: formSectionRightTerritoryComponent
   },
 
   mixins: [
@@ -69,6 +78,7 @@ export default {
   created: function () {
     this.model.push(
       {
+        duration: {},
         territory: {
           scope: 'world',
           excluded: [],

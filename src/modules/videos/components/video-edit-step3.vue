@@ -1,6 +1,6 @@
 <template lang="pug">
   .form
-    .form-panel-title
+    .form-panel.form-panel-title
       .form-title Nouvelle oeuvre
       .form-subtitle Droits d'exploitation
     form(name="show-form" @submit.prevent="")
@@ -35,19 +35,12 @@
             .icon.icon-delete(@click="deleteCustomSociety(index)")
         .form-row.form-field-button
           button(type="button" @click="addCustomSociety()") Ajouter
-      .form-section
-        .form-section-title Durée
-        .form-row.form-field-text
-          label(for="begin-date") Date de début des droits
-          input(type="date" id="begin-date" v-model="model.duration.beginDate")
-        .form-row.form-field-text
-          label(for="end-date") Date de fin des droits
-          input(type="date" id="end-date" v-model="model.duration.endDate")
-      .form-section
-        .form-section-title Territoires d'exploitation
-        form-right-territory(
-          :model="model.territory"
-        )
+      form-section-right-duration(
+        :model="model.duration"
+      )
+      form-section-right-territory(
+        :model="model.territory"
+      )
 
     .form-panel-command
       button(type="button" @click="preHandlePreviousStep()") Etape précédente
@@ -55,8 +48,9 @@
 </template>
 
 <script>
-import formRightTerritoryComponent from 'Core/components/core-form-right-territory';
-import videoEditMixin from 'Modules/videos/mixins/video-edit.mixin';
+import formSectionRightDurationComponent from './video-edit-right-duration';
+import formSectionRightTerritoryComponent from './video-edit-right-territory';
+import videoEditMixin from '../mixins/video-edit.mixin';
 
 const defaultAuthorSocieties = [
   {
@@ -81,7 +75,8 @@ const customAuthorSocieties = [];
 
 export default {
   components: {
-    formRightTerritory: formRightTerritoryComponent
+    formSectionRightDuration: formSectionRightDurationComponent,
+    formSectionRightTerritory: formSectionRightTerritoryComponent
   },
 
   mixins: [

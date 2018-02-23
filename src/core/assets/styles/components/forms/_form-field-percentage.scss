@@ -19,7 +19,9 @@
   }
 
   input {
-    width: 2em;
+    &[type='text'] {
+      width: 2em;
+    }
   }
 
   input + .unit {

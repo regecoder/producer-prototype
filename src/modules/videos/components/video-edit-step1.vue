@@ -1,6 +1,6 @@
 <template lang="pug">
 .form
-    .form-panel-title
+    .form-panel.form-panel-title
       .form-title Nouvelle oeuvre
       .form-subtitle Spectacle
     form(name="show-form" @submit.prevent="")

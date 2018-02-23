@@ -1,5 +1,6 @@
 <template lang="pug">
-  .component
+  .form-section
+    .form-section-title Territoires d'exploitation
     .form-row.form-field-radio
       input(
         type="radio"
