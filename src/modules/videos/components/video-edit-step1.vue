@@ -3,7 +3,7 @@
     .form-panel.form-panel-title
       .form-title Nouvelle oeuvre
       .form-subtitle Vidéo
-    form(name="show-form" @submit.prevent="")
+    form.form-panel(name="show-form" @submit.prevent="")
       .form-section
         .form-section-title Spectacle
         .form-row.form-field-text
@@ -38,7 +38,7 @@
         .form-row.form-field-text
           label(for="production-email") email de contact
           input(type="email" id="production-email" v-model="model.production.email")
-    .form-panel-command
+    .form-panel.form-panel-command
       button(type="button" @click="handleNextStep()") Je passe à l'étape suivante
 </template>
 

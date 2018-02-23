@@ -31,16 +31,14 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-  // Position
-  position: relative;
 
   button {
     @extend %form-command-button;
 
     &:last-of-type {
       // Position
-      position: absolute;
-      right: 0;
+      // Aligne le dernier bouton à droite
+      margin-left: auto;
     }
   }
 }

@@ -3,7 +3,7 @@
     .form-panel.form-panel-title
       .form-title Nouvelle oeuvre
       .form-subtitle Droits d'exploitation
-    form(name="show-form" @submit.prevent="")
+    form.form-panel(name="show-form" @submit.prevent="")
       .form-section
         .form-section-title Sociétés d'auteurs
         .form-row.form-row-checkbox(
@@ -42,7 +42,7 @@
         :model="model.territory"
       )
 
-    .form-panel-command
+    .form-panel.form-panel-command
       button(type="button" @click="preHandlePreviousStep()") Etape précédente
       button(type="button" @click="preHandleNextStep()") Je passe à l'étape suivante
 </template>

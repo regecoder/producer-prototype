@@ -21,13 +21,9 @@
 .form-panel,
 .form-section {
   margin-bottom: 2em;
-}
 
-.form-panel {
-  .form-section {
-    &:last-child {
-      margin-bottom: 0;
-    }
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 

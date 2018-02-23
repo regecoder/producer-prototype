@@ -25,7 +25,7 @@
         .list-command
           .form-field-button
             button(type="button" @click="addCustomSociety()") Ajouter
-    form(name="show-form" @submit.prevent="")
+    form.form-panel(name="show-form" @submit.prevent="")
       .form-section
         .form-section-title Titulaire
         .form-row.form-field-text
@@ -45,7 +45,7 @@
       form-section-right-territory(
         :model="model[0].territory"
       )
-    .form-panel-command
+    .form-panel.form-panel-command
       button(type="button" @click="handlePreviousStep()") Etape précédente
       button(type="button" @click="saveModel()") Enregistrer
 </template>
