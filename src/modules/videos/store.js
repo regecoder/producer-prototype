@@ -1,8 +1,11 @@
 export default {
   state: {
-    show: {},
-    production: {},
-    exploitation: {
+    video: {
+      show: {},
+      production: {},
+      recording: {}
+    },
+    exploitationRights: {
       authorSocieties: {},
       duration: {},
       territory: {

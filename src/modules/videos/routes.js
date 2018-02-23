@@ -2,7 +2,6 @@ import VideoEdit from './components/video-edit';
 import VideoEditStep1 from './components/video-edit-step1';
 import VideoEditStep2 from './components/video-edit-step2';
 import VideoEditStep3 from './components/video-edit-step3';
-import VideoEditStep4 from './components/video-edit-step4';
 
 export default [
   {
@@ -31,11 +30,6 @@ export default [
         path: 'step3',
         name: 'video-add-step3',
         component: VideoEditStep3
-      },
-      {
-        path: 'step4',
-        name: 'video-add-step4',
-        component: VideoEditStep4
       }
     ]
   }

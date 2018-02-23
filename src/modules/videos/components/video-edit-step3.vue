@@ -2,76 +2,58 @@
   .form
     .form-panel.form-panel-title
       .form-title Nouvelle oeuvre
-      .form-subtitle Droits d'exploitation
+      .form-subtitle Droits d'auteurs
+    .form-panel
+      .list
+        .list-header
+          .author Titulaire
+          .capacity Qualité
+          .percentage Pourcentage
+          .command
+        .list-content(:class="{ active: itemActive(1) }" @click="activateItem(1)")
+          .author Rege
+          .capacity Auteur
+          .percentage 20%
+          .command
+            .icon-delete(@click="")
+        .list-content(:class="{ active: itemActive(2) }" @click="activateItem(2)")
+          .author Samuel Airiau-Croisier
+          .capacity Réalisateur
+          .percentage 5%
+          .command
+            .icon-delete(@click="")
+        .list-command
+          .form-field-button
+            button(type="button" @click="addCustomSociety()") Ajouter
     form(name="show-form" @submit.prevent="")
       .form-section
-        .form-section-title Sociétés d'auteurs
-        .form-row.form-row-checkbox(
-          v-for="(authorSociety, index) in defaultAuthorSocieties"
-        )
-          .form-field-checkbox
-            input(
-              type="checkbox"
-              :id="'as-' + index"
-              v-model="authorSociety.checked"
-            )
-            label(:for="'as' + index") {{ authorSociety.label }}
+        .form-section-title Titulaire
+        .form-row.form-field-text
+          label(for="name") Nom du titulaire
+          input(type="text" id="name" v-model="model[0].name")
+        .form-row.form-field-text
+          label(for="capacity") Qualité du titulaire
+          input(type="text" id="capacity" v-model="model[0].capacity")
+        .form-row.form-field-text
+          label(for="percentage") Pourcentage
           .form-field-percentage
-            .text {{ authorSociety.percentage }}
+            input(type="text"  id="percentage" v-model="model[0].percentage")
             .unit %
-        .form-row.form-row-checkbox_edit(
-          v-for="(authorSociety, index) in customAuthorSocieties"
-        )
-          .form-field-checkbox_edit
-            input(
-              type="checkbox"
-              v-model="authorSociety.checked"
-            )
-            input(type="text" v-model="authorSociety.label")
-          .form-field-percentage
-            input(type="text" v-model="authorSociety.percentage")
-            .unit %
-          .form-field-command
-            .icon.icon-delete(@click="deleteCustomSociety(index)")
-        .form-row.form-field-button
-          button(type="button" @click="addCustomSociety()") Ajouter
       form-section-right-duration(
-        :model="model.duration"
+        :model="model[0].duration"
       )
       form-section-right-territory(
-        :model="model.territory"
+        :model="model[0].territory"
       )
-
     .form-panel-command
-      button(type="button" @click="preHandlePreviousStep()") Etape précédente
-      button(type="button" @click="preHandleNextStep()") Je passe à l'étape suivante
+      button(type="button" @click="handlePreviousStep()") Etape précédente
+      button(type="button" @click="saveModel()") Enregistrer
 </template>
 
 <script>
 import formSectionRightDurationComponent from './video-edit-right-duration';
 import formSectionRightTerritoryComponent from './video-edit-right-territory';
 import videoEditMixin from '../mixins/video-edit.mixin';
-
-const defaultAuthorSocieties = [
-  {
-    label: 'Copie privée',
-    percentage: 2
-  },
-  {
-    label: 'SACEM',
-    percentage: 10
-  },
-  {
-    label: 'SACD',
-    percentage: 5
-  },
-  {
-    label: 'SCAM',
-    percentage: 5
-  }
-];
-
-const customAuthorSocieties = [];
 
 export default {
   components: {
@@ -87,76 +69,37 @@ export default {
     return {
       step: {
         order: 3,
-        storeKey: 'exploitation'
+        storeKey: 'authorRights'
       },
-      defaultAuthorSocieties,
-      customAuthorSocieties
+      activeIndex: -1
     };
   },
 
   created: function () {
-    loadAuthorSocieties(this.model.authorSocieties);
+    this.model.push(
+      {
+        duration: {},
+        territory: {
+          scope: 'world',
+          excluded: [],
+          included: []
+        }
+      }
+    );
   },
 
   methods: {
-    addCustomSociety: function () {
-      customAuthorSocieties.push({
-        checked: true
-      });
+    saveModel: function () {
+      console.log('video-edit-step-4: saveModel');
     },
 
-    deleteCustomSociety: function (index) {
-      customAuthorSocieties.splice(index, 1);
+    itemActive: function (index) {
+      return (index === this.activeIndex);
     },
 
-    preHandleNextStep: function () {
-      saveAuthorSocieties(this.model.authorSocieties);
-      this.handleNextStep();
-    },
-
-    preHandlePreviousStep: function () {
-      saveAuthorSocieties(this.model.authorSocieties);
-      this.handlePreviousStep();
+    activateItem: function (index) {
+      this.activeIndex = index;
     }
   }
 };
-
-function loadAuthorSocieties(modelObject) {
-  const properties = Object.keys(modelObject);
-  // Supprime toutes les sociétés personnalisées dans la vue
-  customAuthorSocieties.splice(0);
-  properties.forEach((property) => {
-    const index = defaultAuthorSocieties.findIndex(
-      element => element.label === property
-    );
-    if (index > -1) {
-      defaultAuthorSocieties[index].checked = true;
-    } else {
-      customAuthorSocieties.push({
-        label: property,
-        checked: true
-      });
-    }
-  });
-}
-
-function saveAuthorSocieties(modelObject) {
-  // Supprime toutes les sociétés existantes dans le modèle
-  const properties = Object.keys(modelObject);
-  properties.forEach((property) => {
-    delete modelObject[property];
-  });
-  // Ajoute les sociétés sélectionnées
-  defaultAuthorSocieties.forEach((society) => {
-    if (society.checked) {
-      modelObject[society.label] = true;
-    }
-  });
-  // Ajoute les sociétés personnalisées
-  customAuthorSocieties.forEach((society) => {
-    if (society.checked && typeof society.label !== 'undefined' && society.label !== '') {
-      modelObject[society.label] = true;
-    }
-  });
-}
 </script>
