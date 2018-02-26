@@ -10,50 +10,61 @@
           .capacity Qualité
           .percentage Pourcentage
           .command
-        .list-content(:class="{ active: itemActive(1) }" @click="activateItem(1)")
-          .author Rege
-          .capacity Auteur
-          .percentage 20%
+        .list-content(
+          v-for="(item, index) in list"
+          :class="{ active: listItemActive(index) }"
+          @click="activateListItem(index)"
+        )
+          .author {{ item.name}}
+          .capacity {{ item.capacity}}
+          .percentage {{ item.percentage }}%
           .command
-            .icon-delete(@click="")
-        .list-content(:class="{ active: itemActive(2) }" @click="activateItem(2)")
-          .author Samuel Airiau-Croisier
-          .capacity Réalisateur
-          .percentage 5%
-          .command
-            .icon-delete(@click="")
+            .icon-delete(@click="deleteListItem(index)")
         .list-command
           .form-field-button
-            button(type="button" @click="addCustomSociety()") Ajouter
+            button(type="button" @click="addListItem()") Ajouter
     form.form-panel(name="show-form" @submit.prevent="")
       .form-section
         .form-section-title Titulaire
         .form-row.form-field-text
           label(for="name") Nom du titulaire
-          input(type="text" id="name" v-model="model[0].name")
+          input(type="text" id="name" v-model="formModel.name")
         .form-row.form-field-text
           label(for="capacity") Qualité du titulaire
-          input(type="text" id="capacity" v-model="model[0].capacity")
+          input(type="text" id="capacity" v-model="formModel.capacity")
         .form-row.form-field-text
           label(for="percentage") Pourcentage
           .form-field-percentage
-            input(type="text"  id="percentage" v-model="model[0].percentage")
+            input(type="text"  id="percentage" v-model="formModel.percentage")
             .unit %
       form-section-right-duration(
-        :model="model[0].duration"
+        :model="formModel.duration"
       )
       form-section-right-territory(
-        :model="model[0].territory"
+        :model="formModel.territory"
       )
     .form-panel.form-panel-command
-      button(type="button" @click="handlePreviousStep()") Etape précédente
-      button(type="button" @click="saveModel()") Enregistrer
+      button(type="button" @click="requestPreviousStep()") Etape précédente
+      button(type="button" @click="requestNextStep()") Enregistrer
 </template>
 
 <script>
 import formSectionRightDurationComponent from './video-edit-right-duration';
 import formSectionRightTerritoryComponent from './video-edit-right-territory';
 import videoEditMixin from '../mixins/video-edit.mixin';
+
+// let authorRights = [];
+const authorRights = [];
+
+class FormAuthorRight {
+  constructor() {
+    this.name = null;
+    this.capacity = null;
+    this.percentage = null;
+    this.duration = {};
+    this.territory = {};
+  }
+}
 
 export default {
   components: {
@@ -71,35 +82,58 @@ export default {
         order: 3,
         storeKey: 'authorRights'
       },
-      activeIndex: -1
+      formModel: new FormAuthorRight(),
+      list: authorRights,
+      listActiveIndex: -1
     };
   },
 
   created: function () {
-    this.model.push(
-      {
-        duration: {},
-        territory: {
-          scope: 'world',
-          excluded: [],
-          included: []
-        }
-      }
-    );
+    // resetForm(this);
+    // loadAuthorRights(this);
   },
 
   methods: {
-    saveModel: function () {
-      console.log('video-edit-step-4: saveModel');
+    listItemActive: function (index) {
+      return (index === this.listActiveIndex);
     },
 
-    itemActive: function (index) {
-      return (index === this.activeIndex);
+    activateListItem: function (index) {
+      this.formModel = authorRights[index];
+      this.listActiveIndex = index;
     },
 
-    activateItem: function (index) {
-      this.activeIndex = index;
+    addListItem: function () {
+      authorRights.push(new FormAuthorRight());
+      this.activateListItem(authorRights.length - 1);
+    },
+
+    deleteListItem: function (index) {
+      resetForm(this);
+      authorRights.splice(index, 1);
+    },
+
+    requestNextStep: function () {
+      // saveAuthorRights(this);
+    },
+
+    requestPreviousStep: function () {
+      // saveAuthorRights(this);
+      this.handlePreviousStep();
     }
   }
 };
+
+// function loadAuthorRights(self) {
+//   authorRights = self.model;
+// }
+
+// function saveAuthorRights(self) {
+//   self.model = authorRights;
+// }
+
+function resetForm(self) {
+  self.listActiveIndex = -1;
+  self.formModel = new FormAuthorRight();
+}
 </script>

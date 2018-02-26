@@ -43,8 +43,8 @@
       )
 
     .form-panel.form-panel-command
-      button(type="button" @click="preHandlePreviousStep()") Etape précédente
-      button(type="button" @click="preHandleNextStep()") Je passe à l'étape suivante
+      button(type="button" @click="requestPreviousStep()") Etape précédente
+      button(type="button" @click="requestNextStep()") Je passe à l'étape suivante
 </template>
 
 <script>
@@ -109,12 +109,12 @@ export default {
       customAuthorSocieties.splice(index, 1);
     },
 
-    preHandleNextStep: function () {
+    requestNextStep: function () {
       saveAuthorSocieties(this.model.authorSocieties);
       this.handleNextStep();
     },
 
-    preHandlePreviousStep: function () {
+    requestPreviousStep: function () {
       saveAuthorSocieties(this.model.authorSocieties);
       this.handlePreviousStep();
     }
