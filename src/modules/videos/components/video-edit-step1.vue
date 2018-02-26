@@ -1,6 +1,6 @@
 <template lang="pug">
 .form
-    .form-panel.form-panel-title
+    .form-panel--header
       .form-title Nouvelle oeuvre
       .form-subtitle Vidéo
     form.form-panel(name="show-form" @submit.prevent="")
@@ -38,7 +38,7 @@
         .form-row.form-field-text
           label(for="production-email") email de contact
           input(type="email" id="production-email" v-model="model.production.email")
-    .form-panel.form-panel-command
+    .form-panel--command
       button(type="button" @click="handleNextStep()") Passer à l'étape suivante
 </template>
 

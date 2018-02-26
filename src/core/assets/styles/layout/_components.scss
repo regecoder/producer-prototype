@@ -1,0 +1,69 @@
+// sass-lint:disable property-sort-order
+
+// 1. Variables
+// 2. Functions
+// 3. Mixins
+
+
+
+// 4. Spaceholders
+
+// Gouttières
+%component-panel {
+  margin-bottom: 2em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// 5. Sélecteurs
+
+.component {
+  // Typographie
+  font-size: 1.4em;
+}
+
+.component-panel--command {
+  @extend %component-panel;
+
+  // Apparence
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  button {
+    @extend %button-command;
+
+    &:last-of-type {
+      // Position
+      // Aligne le dernier bouton à droite
+      margin-left: auto;
+    }
+  }
+}
+
+.component-panel--header {
+  @extend %component-panel;
+
+  // Apparence
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 0.2em;
+  border-bottom: medium solid #00c0ef;
+}
+
+.component-subtitle {
+  // Typographie
+  font-size: 1.5em;
+}
+
+.component-title {
+  // Typographie
+  font-size: 2.5em;
+  text-transform: uppercase;
+}
+

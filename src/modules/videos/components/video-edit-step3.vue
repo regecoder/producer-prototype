@@ -1,6 +1,6 @@
 <template lang="pug">
   .form
-    .form-panel.form-panel-title
+    .form-panel--header
       .form-title Nouvelle oeuvre
       .form-subtitle Droits d'auteurs
     .form-panel
@@ -43,7 +43,7 @@
       form-section-right-territory(
         :model="formModel.territory"
       )
-    .form-panel.form-panel-command
+    .form-panel--command
       button(type="button" @click="requestPreviousStep()") Etape précédente
       button(type="button" @click="requestNextStep()") Réaliser une simulation
 </template>

@@ -24,6 +24,7 @@
 // 4. layout
 @import 'layout/grid';
 @import 'layout/header';
+@import 'layout/components';
 
 // 5. components
 
@@ -46,5 +47,4 @@
 @import 'components/forms/form-row-checkbox';
 @import 'components/forms/form-block';
 @import 'components/forms/form-section';
-@import 'components/forms/form-panel-command';
 @import 'components/forms/form';
