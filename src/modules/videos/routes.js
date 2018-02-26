@@ -2,6 +2,7 @@ import VideoEdit from './components/video-edit';
 import VideoEditStep1 from './components/video-edit-step1';
 import VideoEditStep2 from './components/video-edit-step2';
 import VideoEditStep3 from './components/video-edit-step3';
+import VideoSimulation from './components/video-simulation';
 
 export default [
   {
@@ -9,8 +10,8 @@ export default [
     name: 'video-add',
     component: VideoEdit,
     meta: {
-      // requiresAuth: true
-      requiresAuth: false
+      requiresAuth: true
+      // requiresAuth: false
     },
     redirect: {
       name: 'video-add-step1'
@@ -32,5 +33,10 @@ export default [
         component: VideoEditStep3
       }
     ]
+  },
+  {
+    path: '/videos/simulation',
+    name: 'video-simulation',
+    component: VideoSimulation
   }
 ];

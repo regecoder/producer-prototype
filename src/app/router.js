@@ -52,14 +52,14 @@ function getRootRoute() {
 }
 
 function checkAuthorization(route) {
-  let isAuthorized = true;
+  let authorized = true;
 
   if (route.matched.some(record => record.meta.requiresAuth)
     && (!store.getters.userAuthenticated)) {
-    isAuthorized = false;
+    authorized = false;
   }
 
-  return isAuthorized;
+  return authorized;
 }
 
 

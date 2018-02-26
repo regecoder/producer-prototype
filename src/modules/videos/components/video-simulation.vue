@@ -1,8 +1,8 @@
 <template lang="pug">
   .form
     .form-panel.form-panel-title
-      .form-title Nouvelle oeuvre
-      .form-subtitle Droits d'auteurs
+      .form-title Simulation
+      //- .form-subtitle Droits d'auteurs
     .form-panel
       .list
         .list-header
@@ -45,7 +45,7 @@
       )
     .form-panel.form-panel-command
       button(type="button" @click="requestPreviousStep()") Etape précédente
-      button(type="button" @click="requestNextStep()") Réaliser une simulation
+      button(type="button" @click="requestNextStep()") Réaliser une simulaton
 </template>
 
 <script>
@@ -115,9 +115,6 @@ export default {
 
     requestNextStep: function () {
       // saveAuthorRights(this);
-      this.$router.push({
-        name: 'video-simulation'
-      });
     },
 
     requestPreviousStep: function () {
