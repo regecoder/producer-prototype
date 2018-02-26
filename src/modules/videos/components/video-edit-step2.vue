@@ -44,7 +44,7 @@
 
     .form-panel.form-panel-command
       button(type="button" @click="requestPreviousStep()") Etape précédente
-      button(type="button" @click="requestNextStep()") Je passe à l'étape suivante
+      button(type="button" @click="requestNextStep()") Passer à l'étape suivante
 </template>
 
 <script>

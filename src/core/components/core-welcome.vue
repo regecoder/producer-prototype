@@ -1,27 +1,18 @@
 <template lang="pug">
   .component
-    .name app-welcome
-    button(@click="login()") LOGIN
+    login-button
 </template>
 
 <script>
-import loginMixin from 'Core/mixins/core-login.mixin';
+import loginButton from './core-login-button';
 
 export default {
-  mixins: [
-    loginMixin
-  ],
+  components: {
+    loginButton
+  },
   data() {
     return {
     };
   }
 };
 </script>
-
-<style scoped>
-  button {
-    cursor: pointer;;
-    padding: 2px 5px;
-    border: 1px solid #aaa;
-  }
-</style>

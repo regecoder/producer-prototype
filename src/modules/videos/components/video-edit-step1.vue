@@ -39,7 +39,7 @@
           label(for="production-email") email de contact
           input(type="email" id="production-email" v-model="model.production.email")
     .form-panel.form-panel-command
-      button(type="button" @click="handleNextStep()") Je passe à l'étape suivante
+      button(type="button" @click="handleNextStep()") Passer à l'étape suivante
 </template>
 
 <script>

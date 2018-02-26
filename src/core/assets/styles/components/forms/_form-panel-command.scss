@@ -5,24 +5,6 @@
 // 3. Mixins
 
 // 4. Spaceholders
-%form-command-button {
-  background-color: #00c0ef;
-  border: 1px solid transparent;
-  border-radius: 0.3em;
-  color: #fff;
-  cursor: pointer;
-  display: block;
-  font-size: 2rem;
-  line-height: 1em;
-  opacity: 0.8;
-  padding: 0.5em 1em;
-  white-space: nowrap;
-
-  &:hover,
-  &:focus {
-    opacity: 1;
-  }
-}
 
 // 5. Sélecteurs
 .form-panel-command {
@@ -33,7 +15,7 @@
   justify-content: space-between;
 
   button {
-    @extend %form-command-button;
+    @extend %button-command;
 
     &:last-of-type {
       // Position

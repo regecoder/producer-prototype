@@ -2,7 +2,7 @@ import VideoEdit from './components/video-edit';
 import VideoEditStep1 from './components/video-edit-step1';
 import VideoEditStep2 from './components/video-edit-step2';
 import VideoEditStep3 from './components/video-edit-step3';
-import VideoSimulation from './components/video-simulation';
+import VideoSimulator from './components/video-simulator';
 
 export default [
   {
@@ -35,8 +35,8 @@ export default [
     ]
   },
   {
-    path: '/videos/simulation',
-    name: 'video-simulation',
-    component: VideoSimulation
+    path: '/videos/simulator',
+    name: 'video-simulator',
+    component: VideoSimulator
   }
 ];

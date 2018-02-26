@@ -116,7 +116,7 @@ export default {
     requestNextStep: function () {
       // saveAuthorRights(this);
       this.$router.push({
-        name: 'video-simulation'
+        name: 'video-simulator'
       });
     },
 
