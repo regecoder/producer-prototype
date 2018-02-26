@@ -53,7 +53,7 @@ export default {
     return {
       step: {
         order: 1,
-        storeKey: 'video'
+        storeKey: 'work'
       }
     };
   }

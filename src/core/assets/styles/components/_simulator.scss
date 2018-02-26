@@ -1,0 +1,51 @@
+// sass-lint:disable property-sort-order
+
+// 1. Variables
+// 2. Functions
+// 3. Mixins
+
+// 4. Spaceholders
+
+
+%simulator-spacing {
+  margin-bottom: 2em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// 5. Sélecteurs
+
+.simulator {
+  // Apparence
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.simulator-command {
+  width: 40%;
+  background-color: #0f0;
+  padding: 2em;
+}
+
+.simulator-dashboard {
+  width: 60%;
+  background-color: #f00;
+}
+
+.simulator-command-subscription {
+  @extend %simulator-spacing;
+
+  // Apparence
+  display: flex;
+  flex-direction: row;
+  // align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  // max-width: 60%;
+  // margin-left: auto;
+  // margin-right: auto;
+}

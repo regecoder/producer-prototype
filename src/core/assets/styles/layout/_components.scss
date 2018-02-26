@@ -67,3 +67,6 @@
   text-transform: uppercase;
 }
 
+.component-panel--content {
+  @extend %component-panel;
+}

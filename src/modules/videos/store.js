@@ -1,6 +1,6 @@
 export default {
   state: {
-    video: {
+    work: {
       show: {},
       production: {},
       recording: {}
