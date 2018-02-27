@@ -10,7 +10,7 @@ export default {
   components: {
     loginButton
   },
-  data() {
+  data () {
     return {
     };
   }

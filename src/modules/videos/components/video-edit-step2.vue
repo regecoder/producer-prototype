@@ -29,16 +29,16 @@
             )
             input(type="text" v-model="authorSociety.label")
           .form-field-percentage
-            input(type="text" v-model="authorSociety.percentage")
+            input(type="text" v-model.number="authorSociety.percentage")
             .unit %
           .form-field-command
             .icon.icon-delete(@click="deleteCustomSociety(index)")
         .form-row.form-field-button
           button(type="button" @click="addCustomSociety()") Ajouter
-      form-section-right-duration(
+      right-duration(
         :model="model.duration"
       )
-      form-section-right-territory(
+      right-territory(
         :model="model.territory"
       )
     .form-panel--command
@@ -47,42 +47,26 @@
 </template>
 
 <script>
-import formSectionRightDurationComponent from './video-edit-right-duration';
-import formSectionRightTerritoryComponent from './video-edit-right-territory';
+import { authorSocieties } from '../video.service';
+import rightDurationComponent from './video-edit-right-duration';
+import rightTerritoryComponent from './video-edit-right-territory';
 import videoEditMixin from '../mixins/video-edit.mixin';
 
-const defaultAuthorSocieties = [
-  {
-    label: 'Copie privée',
-    percentage: 2
-  },
-  {
-    label: 'SACEM',
-    percentage: 10
-  },
-  {
-    label: 'SACD',
-    percentage: 5
-  },
-  {
-    label: 'SCAM',
-    percentage: 5
-  }
-];
+const defaultAuthorSocieties = authorSocieties;
 
 const customAuthorSocieties = [];
 
 export default {
   components: {
-    formSectionRightDuration: formSectionRightDurationComponent,
-    formSectionRightTerritory: formSectionRightTerritoryComponent
+    rightDuration: rightDurationComponent,
+    rightTerritory: rightTerritoryComponent
   },
 
   mixins: [
     videoEditMixin
   ],
 
-  data() {
+  data () {
     return {
       step: {
         order: 2,
@@ -120,7 +104,7 @@ export default {
   }
 };
 
-function loadAuthorSocieties(modelObject) {
+function loadAuthorSocieties (modelObject) {
   const properties = Object.keys(modelObject);
   // Supprime toutes les sociétés personnalisées dans la vue
   customAuthorSocieties.splice(0);
@@ -132,14 +116,15 @@ function loadAuthorSocieties(modelObject) {
       defaultAuthorSocieties[index].checked = true;
     } else {
       customAuthorSocieties.push({
+        checked: true,
         label: property,
-        checked: true
+        percentage: modelObject[property]
       });
     }
   });
 }
 
-function saveAuthorSocieties(modelObject) {
+function saveAuthorSocieties (modelObject) {
   // Supprime toutes les sociétés existantes dans le modèle
   const properties = Object.keys(modelObject);
   properties.forEach((property) => {
@@ -147,15 +132,25 @@ function saveAuthorSocieties(modelObject) {
   });
   // Ajoute les sociétés sélectionnées
   defaultAuthorSocieties.forEach((society) => {
-    if (society.checked) {
-      modelObject[society.label] = true;
+    if (societyValid(society)) {
+      modelObject[society.label] = society.percentage;
     }
   });
   // Ajoute les sociétés personnalisées
   customAuthorSocieties.forEach((society) => {
-    if (society.checked && typeof society.label !== 'undefined' && society.label !== '') {
-      modelObject[society.label] = true;
+    if (societyValid(society)) {
+      modelObject[society.label] = society.percentage;
     }
   });
+}
+
+function societyValid (society) {
+  let valid = false;
+  if (society.checked &&
+    typeof society.label !== 'undefined' && society.label !== '' &&
+    typeof society.percentage !== 'undefined' && society.percentage !== '') {
+    valid = true;
+  }
+  return valid;
 }
 </script>

@@ -49,7 +49,7 @@ export default {
   mixins: [
     videoEditMixin
   ],
-  data() {
+  data () {
     return {
       step: {
         order: 1,

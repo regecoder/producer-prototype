@@ -6,14 +6,20 @@
 
 // 4. Spaceholders
 
-%table-cell {
+%list-table {
+  // Apparence
+  display: table;
+  border-collapse: collapse;
+}
+
+%list-table-cell {
   // Apparence
   display: table-cell;
   // Dimension
   padding: 0.5em 1em;
 }
 
-%table-row {
+%list-table-row {
   // Apparence
   display: table-row;
   // Decoration
@@ -23,9 +29,7 @@
 // 5. Sélecteurs
 
 .list {
-  // Apparence
-  display: table;
-  border-collapse: collapse;
+  @extend %list-table;
   // Typographie
   font-size: 1em;
 
@@ -36,10 +40,10 @@
 
 .list-header,
 .list-content {
-  @extend %table-row;
+  @extend %list-table-row;
 
-  > div {
-    @extend %table-cell;
+  & > div {
+    @extend %list-table-cell;
   }
 }
 

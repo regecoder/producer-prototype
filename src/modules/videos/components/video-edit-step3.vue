@@ -15,8 +15,8 @@
           :class="{ active: listItemActive(index) }"
           @click="activateListItem(index)"
         )
-          .author {{ item.name}}
-          .capacity {{ item.capacity}}
+          .author {{ index }}  {{ item.name }}
+          .capacity {{ item.capacity }}
           .percentage {{ item.percentage }}%
           .command
             .icon-delete(@click="deleteListItem(index)")
@@ -37,10 +37,10 @@
           .form-field-percentage
             input(type="text"  id="percentage" v-model="formModel.percentage")
             .unit %
-      form-section-right-duration(
+      right-duration(
         :model="formModel.duration"
       )
-      form-section-right-territory(
+      right-territory(
         :model="formModel.territory"
       )
     .form-panel--command
@@ -49,15 +49,15 @@
 </template>
 
 <script>
-import formSectionRightDurationComponent from './video-edit-right-duration';
-import formSectionRightTerritoryComponent from './video-edit-right-territory';
+import rightDurationComponent from './video-edit-right-duration';
+import rightTerritoryComponent from './video-edit-right-territory';
 import videoEditMixin from '../mixins/video-edit.mixin';
 
-// let authorRights = [];
 const authorRights = [];
+// const authorRights = [];
 
-class FormAuthorRight {
-  constructor() {
+class AuthorRight {
+  constructor () {
     this.name = null;
     this.capacity = null;
     this.percentage = null;
@@ -68,29 +68,28 @@ class FormAuthorRight {
 
 export default {
   components: {
-    formSectionRightDuration: formSectionRightDurationComponent,
-    formSectionRightTerritory: formSectionRightTerritoryComponent
+    rightDuration: rightDurationComponent,
+    rightTerritory: rightTerritoryComponent
   },
 
   mixins: [
     videoEditMixin
   ],
 
-  data() {
+  data () {
     return {
       step: {
         order: 3,
         storeKey: 'authorRights'
       },
-      formModel: new FormAuthorRight(),
+      formModel: new AuthorRight(),
       list: authorRights,
       listActiveIndex: -1
     };
   },
 
   created: function () {
-    // resetForm(this);
-    // loadAuthorRights(this);
+    loadAuthorRights(this);
   },
 
   methods: {
@@ -104,7 +103,7 @@ export default {
     },
 
     addListItem: function () {
-      authorRights.push(new FormAuthorRight());
+      authorRights.push(new AuthorRight());
       this.activateListItem(authorRights.length - 1);
     },
 
@@ -114,29 +113,31 @@ export default {
     },
 
     requestNextStep: function () {
-      // saveAuthorRights(this);
+      saveAuthorRights(this);
       this.$router.push({
         name: 'video-simulator'
       });
     },
 
     requestPreviousStep: function () {
-      // saveAuthorRights(this);
+      saveAuthorRights(this);
       this.handlePreviousStep();
     }
   }
 };
 
-// function loadAuthorRights(self) {
-//   authorRights = self.model;
-// }
+function loadAuthorRights (self) {
+  authorRights.splice(0);
+  authorRights.splice(0, 0, ...self.model);
+}
 
-// function saveAuthorRights(self) {
-//   self.model = authorRights;
-// }
+function saveAuthorRights (self) {
+  self.model.splice(0);
+  self.model.splice(0, 0, ...authorRights);
+}
 
-function resetForm(self) {
+function resetForm (self) {
+  self.formModel = new AuthorRight();
   self.listActiveIndex = -1;
-  self.formModel = new FormAuthorRight();
 }
 </script>

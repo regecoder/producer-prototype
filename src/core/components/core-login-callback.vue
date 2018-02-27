@@ -7,7 +7,7 @@
 import { authService } from 'Core/services';
 
 export default {
-  data() {
+  data () {
     return {
     };
   },

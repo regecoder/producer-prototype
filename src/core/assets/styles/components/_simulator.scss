@@ -6,6 +6,13 @@
 
 // 4. Spaceholders
 
+%simulator-dashboard-sharing-panel {
+  display: table-row;
+
+  & > div, {
+    display: table-cell;
+  }
+}
 
 %simulator-spacing {
   margin-bottom: 2em;
@@ -26,13 +33,16 @@
 }
 
 .simulator-command {
+  // Dimension
   width: 40%;
-  background-color: #0f0;
   padding: 2em;
+  background-color: #0f0;
 }
 
 .simulator-dashboard {
+  // Dimension
   width: 60%;
+  padding: 2em;
   background-color: #f00;
 }
 
@@ -42,10 +52,30 @@
   // Apparence
   display: flex;
   flex-direction: row;
-  // align-items: center;
   justify-content: space-between;
   flex-wrap: nowrap;
   // max-width: 60%;
   // margin-left: auto;
   // margin-right: auto;
+}
+
+.simulator-dashboard-global {
+  // Apparence
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.simulator-dashboard-sharing {
+  display: table;
+  border-collapse: collapse;
+}
+
+.simulator-dashboard-sharing-header {
+  @extend %simulator-dashboard-sharing-panel;
+}
+
+.simulator-dashboard-sharing-content {
+  @extend %simulator-dashboard-sharing-panel;
 }

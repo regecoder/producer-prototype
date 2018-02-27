@@ -8,7 +8,7 @@
   const logoPath = require('Core/assets/images/logo.png');
 
   export default {
-    data() {
+    data () {
       return {
         logoPath
       };
