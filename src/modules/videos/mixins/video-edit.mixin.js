@@ -6,6 +6,14 @@ export default {
   computed: {
     model: function () {
       return this.$store.state.video[this.step.storeKey];
+    },
+
+    showTitle: function () {
+      let title = this.$store.state.video.work.show.title;
+      if (!title) {
+        title = 'Nouvelle oeuvre';
+      }
+      return title;
     }
   }
 };

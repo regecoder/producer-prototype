@@ -1,7 +1,7 @@
 <template lang="pug">
   .form
     .form-panel--header
-      .form-title Nouvelle oeuvre
+      .form-title {{ showTitle }}
       .form-subtitle Droits d'exploitation
     form.form-panel(name="show-form" @submit.prevent="")
       .form-section

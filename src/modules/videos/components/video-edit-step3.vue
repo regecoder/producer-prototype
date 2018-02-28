@@ -1,8 +1,8 @@
 <template lang="pug">
   .form
     .form-panel--header
-      .form-title Nouvelle oeuvre
-      .form-subtitle Droits d'auteurs
+      .form-title {{ showTitle }}
+      .form-subtitle Ayant-droits producteur
     .form-panel
       .list
         .list-header
