@@ -9,7 +9,7 @@ import { router, config, store } from 'App';
 
 class Auth0Service {
 
-  constructor() {
+  constructor () {
     // this.login = this.login.bind(this);
     // this.authenticate = this.authenticate.bind(this);
     // this.setSession = this.setSession.bind(this);
@@ -30,12 +30,12 @@ class Auth0Service {
     });
   }
 
-  login(originRoute = null) {
+  login (originRoute = null) {
     this._redirectRoute = originRoute;
     this._webAuth.authorize();
   }
 
-  authenticate() {
+  authenticate () {
     this._webAuth.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
@@ -52,7 +52,7 @@ class Auth0Service {
     });
   }
 
-  setSession(authResult) {
+  setSession (authResult) {
     // Set the time that the access token will expire at
     const expiresAt = JSON.stringify(
       (authResult.expiresIn * 1000) + new Date().getTime()
@@ -63,7 +63,7 @@ class Auth0Service {
     store.commit('authenticate', true);
   }
 
-  logout() {
+  logout () {
     // Clear access token and ID token from local storage
     localStorage.removeItem('access-token');
     localStorage.removeItem('id-token');
@@ -74,7 +74,7 @@ class Auth0Service {
     });
   }
 
-  sessionActive() {
+  sessionActive () {
     // Check whether the current time is past the
     // access token's expiry time
     const expiresAt = JSON.parse(localStorage.getItem('expires-at'));

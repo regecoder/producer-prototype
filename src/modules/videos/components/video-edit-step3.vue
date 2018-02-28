@@ -15,7 +15,7 @@
           :class="{ active: listItemActive(index) }"
           @click="activateListItem(index)"
         )
-          .author {{ index }}  {{ item.name }}
+          .author {{ item.name }}
           .capacity {{ item.capacity }}
           .percentage {{ item.percentage }}%
           .command

@@ -1,0 +1,30 @@
+// sass-lint:disable property-sort-order
+
+// 1. Variables
+// 2. Functions
+// 3. Mixins
+
+// 4. Spaceholders
+
+%video-widget {
+  margin-bottom: 2em;
+  color: #666;
+}
+
+// 5. Sélecteurs
+
+.video-widget--short {
+  @extend %video-widget;
+
+  & .video-widget-title {
+    font-size: 2em;
+    // color: #aaa;
+  }
+
+  & .video-widget-subtitle {
+    font-size: 1.5em;
+    // color: #aaa;
+  }
+
+}
+

@@ -1,45 +1,56 @@
 <template lang="pug">
   .component
     .component-panel--header
-      .component-title Simulateur
+      .component-title Simulateur de revenu
     .component-panel--content
       .video-widget--short
-        .video-title {{ model.work.show.title }}
-        .video-subtitle {{ model.work.show.author }}
+        .video-widget-title {{ model.work.show.title }}
+        .video-widget-subtitle {{ model.work.show.author }}
       .simulator
         .simulator-command
+          .simulator-command-title Simulateur de vues
           .simulator-command-subscription
-            .subscription1-icon.button-action(@click="addView(0, 1)") + 1
-            .subscription1-icon.button-action(@click="addView(0, 10)") + 10
-            .subscription1-icon.button-action(@click="addView(0, 100)") + 100
-            .subscription1-icon.button-action(@click="addView(0, 1000)") + 1000
+            .subscription-actions
+              .subscription1-icon.button-action(@click="addView(0, 1)") + 1
+              .subscription1-icon.button-action(@click="addView(0, 10)") + 10
+              .subscription1-icon.button-action(@click="addView(0, 100)") + 100
+              .subscription1-icon.button-action(@click="addView(0, 1000)") + 1000
+            .subscription-comment Forfait B to C à 10€
           .simulator-command-subscription
-            .subscription1-icon.button-action(@click="addView(1, 1)") + 1
-            .subscription1-icon.button-action(@click="addView(1, 10)") + 10
-            .subscription1-icon.button-action(@click="addView(1, 100)") + 100
-            .subscription1-icon.button-action(@click="addView(1, 1000)") + 1000
+            .subscription-actions
+              .subscription1-icon.button-action(@click="addView(1, 1)") + 1
+              .subscription1-icon.button-action(@click="addView(1, 10)") + 10
+              .subscription1-icon.button-action(@click="addView(1, 100)") + 100
+              .subscription1-icon.button-action(@click="addView(1, 1000)") + 1000
+            .subscription-comment Forfait B to B à 40€
         .simulator-dashboard
-          .simulator-dashboard-global
-            .simulator-dashboard-label Nombre de vues
-            .simulator-dashboard-view {{ totalViews }}
-            .simulator-dashboard-label Revenu
-            .simulator-dashboard-revenue {{ dashboard.totalRevenue }}
+          .simulator-dashboard-total
+            .cell
+              .label Vues
+              .view {{ totalViews }}
+            .cell
+              .label Revenu
+              .revenue {{ dashboard.totalRevenue }}€
           .simulator-dashboard-sharing
             .simulator-dashboard-sharing-header
-              .label Droits
-              .value Pourcentage
+              .label Titulaire de droits
+              .value %
               .label
               .value
-              .value Revenue
+              .value Revenu
             .simulator-dashboard-sharing-content(
               v-for="item in dashboard.sharing"
+              v-bind:class="[item.category ? 'category' : 'item']"
             )
               .label {{ item.label }}
               .value(v-if="!item.categoryPercentage") {{ item.percentage }}
+                span(v-if="item.percentage") %
               .value(v-else)
               .label {{ item.name }}
               .value {{ item.categoryPercentage }}
-              .value {{ sharingRevenue(item) }}
+                span(v-if="item.categoryPercentage") %
+              .revenue(v-if="item.percentage") {{ sharingRevenue(item) }}
+              .revenue(v-else)
     .component-panel--command
       button(type="button" @click="exit()") Retour
       button(type="button" data-alert="error" @click="resetView()") Remettre à zéro
@@ -52,12 +63,13 @@ import {
 } from '../video.service';
 
 class SharingItem {
-  constructor (label) {
+  constructor (label, category = false) {
     this.label = label;
     this.percentage = null;
     this.name = null;
     this.categoryPercentage = null;
     this.revenue = 0;
+    this.category = category;
   }
 }
 
@@ -128,7 +140,7 @@ export default {
         }
         revenue = Math.round(revenue);
       }
-      return revenue;
+      return (revenue === 0 ? '' : `${revenue}€`);
     }
   }
 };
@@ -159,7 +171,7 @@ function initializeSharing (self) {
   self.dashboard.sharing = [];
   Object.keys(sharingCategory).forEach((categoryKey) => {
     const category = sharingCategory[categoryKey];
-    const item = new SharingItem(category.label);
+    const item = new SharingItem(category.label, true);
     switch (categoryKey) {
       case 'author':
         self.dashboard.sharing.push(item);
