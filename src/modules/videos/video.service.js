@@ -32,7 +32,6 @@ const sharingCategory = {
   },
   editor: {
     label: 'Editeur',
-    percentage: 35,
     name: 'Scenso'
   }
 };

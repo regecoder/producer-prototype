@@ -1,7 +1,7 @@
 <template lang="pug">
   .component
     .component-panel--header
-      .component-title Simulateur de revenu
+      .component-title Simulateur de revenus
     .component-panel--content
       .video-widget--short
         .video-widget-title {{ model.work.show.title }}
@@ -29,7 +29,7 @@
               .label Vues
               .view {{ totalViews }}
             .cell
-              .label Revenu
+              .label Revenus
               .revenue {{ dashboard.totalRevenue }}€
           .simulator-dashboard-sharing
             .simulator-dashboard-sharing-header
@@ -37,7 +37,7 @@
               .value %
               .label
               .value
-              .value Revenu
+              .value Revenus
             .simulator-dashboard-sharing-content(
               v-for="item in dashboard.sharing"
               v-bind:class="[item.category ? 'category' : 'item']"
@@ -169,22 +169,30 @@ function computeViews (views) {
 
 function initializeSharing (self) {
   self.dashboard.sharing = [];
+  let totalPercentage = 0;
   Object.keys(sharingCategory).forEach((categoryKey) => {
     const category = sharingCategory[categoryKey];
     const item = new SharingItem(category.label, true);
     switch (categoryKey) {
       case 'author':
         self.dashboard.sharing.push(item);
-        initializeSharingAuthor(self);
+        initializeSharingAuthor(self, item);
+        totalPercentage += item.percentage;
         break;
       case 'producer':
         item.percentage = category.percentage;
+        totalPercentage += item.percentage;
         self.dashboard.sharing.push(item);
         initializeSharingProducer(self, item.percentage);
         break;
       case 'distributor':
-      case 'editor':
         item.percentage = category.percentage;
+        totalPercentage += item.percentage;
+        item.name = category.name;
+        self.dashboard.sharing.push(item);
+        break;
+      case 'editor':
+        item.percentage = 100 - totalPercentage;
         item.name = category.name;
         self.dashboard.sharing.push(item);
         break;
@@ -193,13 +201,14 @@ function initializeSharing (self) {
   });
 }
 
-function initializeSharingAuthor (self) {
+function initializeSharingAuthor (self, categoryItem) {
   authorSocieties.forEach((society) => {
     const modelAuthorSocieties = self.model.exploitationRights.authorSocieties;
     // Teste si la société d'auteurs est présente dans le modèle
     if (modelAuthorSocieties[society.label]) {
       const item = new SharingItem(society.label);
       item.percentage = modelAuthorSocieties[society.label];
+      categoryItem.percentage += modelAuthorSocieties[society.label];
       self.dashboard.sharing.push(item);
     }
   });
