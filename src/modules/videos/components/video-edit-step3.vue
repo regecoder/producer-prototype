@@ -8,6 +8,8 @@
         .list-header
           .author Titulaire
           .capacity Qualité
+          .begin-date Début
+          .end-date Fin
           .percentage Pourcentage
           .command
         .list-content(
@@ -17,6 +19,8 @@
         )
           .author {{ item.name }}
           .capacity {{ item.capacity }}
+          .begin-date {{ formattedDate(item.duration.beginDate) }}
+          .end-date  {{ formattedDate(item.duration.endDate) }}
           .percentage {{ item.percentage }}%
           .command
             .icon-delete(@click="deleteListItem(index)")
@@ -93,6 +97,15 @@ export default {
   },
 
   methods: {
+
+    formattedDate: function (currentDate) {
+      let returnDate = null;
+      if (currentDate) {
+        returnDate = new Date(currentDate).toLocaleDateString();
+      }
+      return returnDate;
+    },
+
     listItemActive: function (index) {
       return (index === this.listActiveIndex);
     },
