@@ -2,7 +2,7 @@
   .form
     .form-panel--header
       .form-title {{ showTitle }}
-      .form-subtitle Ayant-droits producteur
+      .form-subtitle Ayants droit producteur
     .form-panel
       .list
         .list-header
