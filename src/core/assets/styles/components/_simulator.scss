@@ -10,7 +10,7 @@
   color: $color-alert-info;
 }
 
-%simulator-dashboard-sharing-panel {
+%simulator-dashboard-sharing-area {
   display: table-row;
 
   & > div, {
@@ -120,7 +120,7 @@
 }
 
 .simulator-dashboard-sharing-header {
-  @extend %simulator-dashboard-sharing-panel;
+  @extend %simulator-dashboard-sharing-area;
 
   & .label,
   & .value {
@@ -130,7 +130,7 @@
 }
 
 .simulator-dashboard-sharing-content {
-  @extend %simulator-dashboard-sharing-panel;
+  @extend %simulator-dashboard-sharing-area;
 
   font-size: 1.2em;
 

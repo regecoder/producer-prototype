@@ -1,9 +1,9 @@
 <template lang="pug">
 .form
-    .form-panel--header
+    .form-area--header
       .form-title Nouvelle oeuvre
       .form-subtitle Vidéo
-    form.form-panel(name="show-form" @submit.prevent="")
+    form.form-area(name="show-form" @submit.prevent="")
       .form-section
         .form-section-title Spectacle
         .form-row.form-field-text
@@ -38,7 +38,7 @@
         .form-row.form-field-text
           label(for="production-email") email de contact
           input(type="email" id="production-email" v-model="model.production.email")
-    .form-panel--command
+    .form-area--command
       button(type="button" @click="handleNextStep()") Passer à l'étape suivante
 </template>
 

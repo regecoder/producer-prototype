@@ -1,9 +1,9 @@
 <template lang="pug">
   .form
-    .form-panel--header
+    .form-area--header
       .form-title {{ showTitle }}
       .form-subtitle Droits d'exploitation
-    form.form-panel(name="show-form" @submit.prevent="")
+    form.form-area(name="show-form" @submit.prevent="")
       .form-section
         .form-section-title Sociétés d'auteurs
         .form-row.form-row-checkbox(
@@ -41,7 +41,7 @@
       right-territory(
         :model="model.territory"
       )
-    .form-panel--command
+    .form-area--command
       button(type="button" @click="requestPreviousStep()") Etape précédente
       button(type="button" @click="requestNextStep()") Passer à l'étape suivante
 </template>

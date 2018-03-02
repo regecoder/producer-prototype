@@ -1,9 +1,9 @@
 <template lang="pug">
   .form
-    .form-panel--header
+    .form-area--header
       .form-title {{ showTitle }}
       .form-subtitle Ayants droit producteur
-    .form-panel
+    .form-area
       .list
         .list-header
           .author Titulaire
@@ -27,7 +27,7 @@
         .list-command
           .form-field-button
             button(type="button" @click="addListItem()") Ajouter
-    form.form-panel(name="show-form" @submit.prevent="")
+    form.form-area(name="show-form" @submit.prevent="")
       .form-section
         .form-section-title Titulaire
         .form-row.form-field-text
@@ -47,7 +47,7 @@
       right-territory(
         :model="formModel.territory"
       )
-    .form-panel--command
+    .form-area--command
       button(type="button" @click="requestPreviousStep()") Etape précédente
       button(type="button" @click="requestNextStep()") Réaliser une simulation
 </template>

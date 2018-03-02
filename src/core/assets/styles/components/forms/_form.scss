@@ -18,7 +18,7 @@
 
 // Espacement
 
-.form-panel,
+.form-area,
 .form-section {
   margin-bottom: 2em;
 
@@ -27,9 +27,9 @@
   }
 }
 
-.form-panel--header {
-  @extend .form-panel;
-  @extend .component-panel--header;
+.form-area--header {
+  @extend .form-area;
+  @extend .component-area--header;
 }
 
 .form-title {
@@ -40,7 +40,7 @@
   @extend .component-subtitle;
 }
 
-.form-panel--command {
-  @extend .form-panel;
-  @extend .component-panel--command;
+.form-area--command {
+  @extend .form-area;
+  @extend .component-area--command;
 }

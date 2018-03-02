@@ -9,7 +9,7 @@
 // 4. Spaceholders
 
 // Gouttières
-%component-panel {
+%component-area {
   margin-bottom: 2em;
 
   &:last-child {
@@ -24,8 +24,8 @@
   font-size: 1.4em;
 }
 
-.component-panel--command {
-  @extend %component-panel;
+.component-area--command {
+  @extend %component-area;
 
   // Apparence
   display: flex;
@@ -44,8 +44,8 @@
   }
 }
 
-.component-panel--header {
-  @extend %component-panel;
+.component-area--header {
+  @extend %component-area;
 
   // Apparence
   display: flex;
@@ -67,6 +67,6 @@
   text-transform: uppercase;
 }
 
-.component-panel--content {
-  @extend %component-panel;
+.component-area--content {
+  @extend %component-area;
 }

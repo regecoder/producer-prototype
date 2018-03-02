@@ -1,8 +1,8 @@
 <template lang="pug">
   .component
-    .component-panel--header
+    .component-area--header
       .component-title Simulateur de revenus
-    .component-panel--content
+    .component-area--content
       .video-widget--short
         .video-widget-title {{ model.work.show.title }}
         .video-widget-subtitle {{ model.work.show.author }}
@@ -51,7 +51,7 @@
                 span(v-if="item.categoryPercentage") %
               .revenue(v-if="item.percentage") {{ sharingRevenue(item) }}
               .revenue(v-else)
-    .component-panel--command
+    .component-area--command
       button(type="button" @click="exit()") Retour
       button(type="button" data-alert="error" @click="resetView()") Remettre à zéro
 </template>
