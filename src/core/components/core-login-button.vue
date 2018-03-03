@@ -1,7 +1,7 @@
 <template lang="pug">
   .core-login-button
     div(v-if="!userAuthenticated")
-      button.button-command(@click="login()") Connectez-vous
+      button.button--command(@click="login()") Connectez-vous
 </template>
 
 <script>

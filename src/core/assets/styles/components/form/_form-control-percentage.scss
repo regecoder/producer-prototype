@@ -7,9 +7,9 @@
 
 // 5. Sélecteurs
 
-.form-field-percentage {
+.form-control--percentage {
   // Apparence
-  @extend %form-field-row;
+  @extend %form-control--row;
   // Typographie
   // font-size: 1em;
 

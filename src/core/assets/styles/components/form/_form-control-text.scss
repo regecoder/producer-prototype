@@ -4,9 +4,9 @@
 
 // 4. Spaceholders
 
-%form-field-text {
+%form-control--text {
   // Apparence
-  @extend %form-field-column;
+  @extend %form-control--column;
 
   label {
     color: #999;
@@ -17,8 +17,8 @@
 
 // 5. Sélecteurs
 
-.form-field-text {
-  @extend %form-field-text;
+.form-control--text {
+  @extend %form-control--text;
 
   input {
     &[type='date'] {

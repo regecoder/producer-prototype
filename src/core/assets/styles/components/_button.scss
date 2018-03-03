@@ -23,7 +23,7 @@
   }
 }
 
-%button-command {
+%button--command {
   @extend %button;
 
   background-color: $color-alert-info;
@@ -39,7 +39,7 @@
   }
 }
 
-%button-action {
+%button--action {
   @extend %button;
 
   background-color: #aaa;
@@ -55,10 +55,10 @@
 
 // 5. Sélecteurs
 
-.button-command {
-  @extend %button-command;
+.button--command {
+  @extend %button--command;
 }
 
-.button-action {
-  @extend %button-action;
+.button--action {
+  @extend %button--action;
 }

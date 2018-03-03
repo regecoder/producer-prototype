@@ -1,7 +1,7 @@
 <template lang="pug">
-  .form-section
-    .form-section-title Territoires d'exploitation
-    .form-row.form-field-radio
+  .form-sector
+    .form-sector-title Territoires d'exploitation
+    .form-block.form-control--radio
       input(
         type="radio"
         name="te-scope"
@@ -10,7 +10,7 @@
         v-model="model.scope"
       )
       label(for="te-wr") Monde
-    .form-row.form-field-radio
+    .form-block.form-control--radio
       input(
         type="radio"
         name="te-scope"
@@ -21,11 +21,11 @@
       label(for="te-fr") France
     .form-block(v-show="includedTerritoriesEnabled")
       .form-block-title Territoires à inclure
-      .form-field-button
+      .form-control--button
         button(type="button" @click="addIncludedTerritories()") Ajouter
     .form-block(v-show="excludedTerritoriesEnabled")
       .form-block-title Territoires à exclure
-      .form-field-button
+      .form-control--button
         button(type="button" @click="addExcludedTerritories()") Ajouter
 </template>
 

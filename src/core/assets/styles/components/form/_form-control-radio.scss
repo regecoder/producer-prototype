@@ -4,9 +4,9 @@
 // 4. Spaceholders
 // 5. Sélecteurs
 
-%form-field-radio {
+%form-control--radio {
   // Apparence
-  @extend %form-field-row;
+  @extend %form-control--row;
   // Dimensionnement
   // width: 100%;
 
@@ -23,6 +23,6 @@
   }
 }
 
-.form-field-radio {
-  @extend %form-field-radio;
+.form-control--radio {
+  @extend %form-control--radio;
 }

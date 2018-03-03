@@ -1,5 +1,5 @@
 <template lang="pug">
-  .component
+  .view
     .name core-not-found
     .path {{path}}
 </template>

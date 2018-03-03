@@ -6,7 +6,7 @@
 
 // 4. Spaceholders
 
-%form-field-column {
+%form-control--column {
   // Apparence
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@
   flex-wrap: nowrap;
 }
 
-%form-field-row {
+%form-control--row {
   // Apparence
   display: flex;
   flex-direction: row;

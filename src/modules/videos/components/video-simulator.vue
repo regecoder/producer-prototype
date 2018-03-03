@@ -1,57 +1,57 @@
 <template lang="pug">
-  .component
-    .component-area--header
-      .component-title Simulateur de revenus
-    .component-area--content
+  .view
+    .view-area--header
+      .view-title Simulateur de revenus
+    .view-area--content
       .video-widget--short
         .video-widget-title {{ model.work.show.title }}
         .video-widget-subtitle {{ model.work.show.author }}
       .simulator
-        .simulator-command
-          .simulator-command-title Simulateur de vues
-          .simulator-command-subscription
-            .subscription-actions
-              .subscription1-icon.button-action(@click="addView(0, 1)") + 1
-              .subscription1-icon.button-action(@click="addView(0, 10)") + 10
-              .subscription1-icon.button-action(@click="addView(0, 100)") + 100
-              .subscription1-icon.button-action(@click="addView(0, 1000)") + 1000
-            .subscription-comment Forfait B to C à 10€
-          .simulator-command-subscription
-            .subscription-actions
-              .subscription1-icon.button-action(@click="addView(1, 1)") + 1
-              .subscription1-icon.button-action(@click="addView(1, 10)") + 10
-              .subscription1-icon.button-action(@click="addView(1, 100)") + 100
-              .subscription1-icon.button-action(@click="addView(1, 1000)") + 1000
-            .subscription-comment Forfait B to B à 40€
+        .simulator-command-panel
+          .simulator-command-panel-title Simulateur de vues
+          .simulator-subscription
+            .simulator-subscription-actionbar
+              .button--action(@click="addView(0, 1)") + 1
+              .button--action(@click="addView(0, 10)") + 10
+              .button--action(@click="addView(0, 100)") + 100
+              .button--action(@click="addView(0, 1000)") + 1000
+            .simulator-subscription-comment Forfait B to C à 10€
+          .simulator-subscription
+            .simulator-subscription-actionbar
+              .button--action(@click="addView(1, 1)") + 1
+              .button--action(@click="addView(1, 10)") + 10
+              .button--action(@click="addView(1, 100)") + 100
+              .button--action(@click="addView(1, 1000)") + 1000
+            .simulator-subscription-comment Forfait B to B à 40€
         .simulator-dashboard
-          .simulator-dashboard-total
-            .cell
-              .label Vues
-              .view {{ totalViews }}
-            .cell
-              .label Revenus
-              .revenue {{ dashboard.totalRevenue }}€
-          .simulator-dashboard-sharing
-            .simulator-dashboard-sharing-header
-              .label Titulaire de droits
-              .value %
-              .label
-              .value
-              .value Revenus
-            .simulator-dashboard-sharing-content(
+          .simulator-total
+            .block
+              .caption Vues
+              .value {{ totalViews }}
+            .block
+              .caption Revenus
+              .value {{ dashboard.totalRevenue }}€
+          .simulator-sharing
+            .simulator-sharing-header
+              .caption Titulaire de droits
+              .caption--percentage %
+              .caption
+              .caption
+              .caption--revenue Revenus
+            .simulator-sharing-content(
               v-for="item in dashboard.sharing"
               v-bind:class="[item.category ? 'category' : 'item']"
             )
-              .label {{ item.label }}
-              .value(v-if="!item.categoryPercentage") {{ item.percentage }}
+              .value {{ item.label }}
+              .value--percentage(v-if="!item.categoryPercentage") {{ item.percentage }}
                 span(v-if="item.percentage") %
-              .value(v-else)
-              .label {{ item.name }}
-              .value {{ item.categoryPercentage }}
+              .value--percentage(v-else)
+              .value {{ item.name }}
+              .value--percentage {{ item.categoryPercentage }}
                 span(v-if="item.categoryPercentage") %
-              .revenue(v-if="item.percentage") {{ sharingRevenue(item) }}
-              .revenue(v-else)
-    .component-area--command
+              .value--revenue(v-if="item.percentage") {{ sharingRevenue(item) }}
+              .value--revenue(v-else)
+    .view-area--command-panel
       button(type="button" @click="exit()") Retour
       button(type="button" data-alert="error" @click="resetView()") Remettre à zéro
 </template>

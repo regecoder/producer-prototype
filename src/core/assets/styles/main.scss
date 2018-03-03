@@ -24,30 +24,25 @@
 // 4. layout
 @import 'layout/grid';
 @import 'layout/header';
-@import 'layout/components';
+@import 'layout/view';
 
 // 5. components
 
 // Basics
-@import 'components/buttons';
-@import 'components/icons';
+@import 'components/button';
+@import 'components/icon';
 
 // Lists
-@import 'components/lists';
+@import 'components/list';
 
 // Forms
-@import 'components/forms/form-field';
-@import 'components/forms/form-field-text';
-@import 'components/forms/form-field-percentage';
-@import 'components/forms/form-field-select';
-@import 'components/forms/form-field-checkbox';
-@import 'components/forms/form-field-radio';
-@import 'components/forms/form-field-button';
-@import 'components/forms/form-field-command';
-@import 'components/forms/form-row-checkbox';
-@import 'components/forms/form-block';
-@import 'components/forms/form-section';
-@import 'components/forms/form';
-
-// Simulateur
-@import 'components/simulator';
+@import 'components/form/form-control';
+@import 'components/form/form-control-text';
+@import 'components/form/form-control-percentage';
+@import 'components/form/form-control-select';
+@import 'components/form/form-control-checkbox';
+@import 'components/form/form-control-radio';
+@import 'components/form/form-control-button';
+@import 'components/form/form-control-command';
+@import 'components/form/form-block-checkbox';
+@import 'components/form/form-view';

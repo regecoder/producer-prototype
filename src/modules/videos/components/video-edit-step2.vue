@@ -1,39 +1,39 @@
 <template lang="pug">
-  .form
+  .form-view
     .form-area--header
-      .form-title {{ showTitle }}
-      .form-subtitle Droits d'exploitation
+      .form-view-title {{ showTitle }}
+      .form-view-subtitle Droits d'exploitation
     form.form-area(name="show-form" @submit.prevent="")
-      .form-section
-        .form-section-title Sociétés d'auteurs
-        .form-row.form-row-checkbox(
+      .form-sector
+        .form-sector-title Sociétés d'auteurs
+        .form-block--checkbox(
           v-for="(authorSociety, index) in defaultAuthorSocieties"
         )
-          .form-field-checkbox
+          .form-control--checkbox
             input(
               type="checkbox"
               :id="'as-' + index"
               v-model="authorSociety.checked"
             )
             label(:for="'as' + index") {{ authorSociety.label }}
-          .form-field-percentage
+          .form-control--percentage
             .text {{ authorSociety.percentage }}
             .unit %
-        .form-row.form-row-checkbox_edit(
+        .form-block--checkbox--edit(
           v-for="(authorSociety, index) in customAuthorSocieties"
         )
-          .form-field-checkbox_edit
+          .form-control--checkbox--edit
             input(
               type="checkbox"
               v-model="authorSociety.checked"
             )
             input(type="text" v-model="authorSociety.label")
-          .form-field-percentage
+          .form-control--percentage
             input(type="text" v-model.number="authorSociety.percentage")
             .unit %
-          .form-field-command
+          .form-control--command
             .icon.icon-delete(@click="deleteCustomSociety(index)")
-        .form-row.form-field-button
+        .form-block.form-control--button
           button(type="button" @click="addCustomSociety()") Ajouter
       right-duration(
         :model="model.duration"
@@ -41,7 +41,7 @@
       right-territory(
         :model="model.territory"
       )
-    .form-area--command
+    .form-area--command-panel
       button(type="button" @click="requestPreviousStep()") Etape précédente
       button(type="button" @click="requestNextStep()") Passer à l'étape suivante
 </template>

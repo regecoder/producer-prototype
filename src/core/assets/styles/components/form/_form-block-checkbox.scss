@@ -1,8 +1,13 @@
 // 1. Variables
 // 2. Functions
+// 3. Mixins
+// 4. Spaceholders
 
-// 3. Spaceholders
-%form-row-checkbox {
+// 5. Sélecteurs
+
+.form-block--checkbox {
+  @extend .form-block;
+
   // Apparence
   display: flex;
   flex-direction: row;
@@ -11,13 +16,8 @@
   width: 40%;
 }
 
-// 5. Sélecteurs
-.form-row-checkbox {
-  @extend %form-row-checkbox;
-}
-
-.form-row-checkbox_edit {
-  @extend %form-row-checkbox;
+.form-block--checkbox--edit {
+  @extend .form-block--checkbox;
 
   input {
     &:not(:first-child) {

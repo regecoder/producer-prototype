@@ -2,11 +2,14 @@
 // 2. Functions
 // 3. Mixins
 // 4. Spaceholders
+
 // 5. Sélecteurs
 
-.form-field-button {
+.form-control--select {
+  @extend %form-control--text;
 
-  button {
-    @extend %button-action;
+  select {
+    font-size: 1em;
+
   }
 }

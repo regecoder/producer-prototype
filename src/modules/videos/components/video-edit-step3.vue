@@ -1,8 +1,8 @@
 <template lang="pug">
-  .form
+  .form-view
     .form-area--header
-      .form-title {{ showTitle }}
-      .form-subtitle Ayants droit producteur
+      .view-title {{ showTitle }}
+      .view-subtitle Ayants droit producteur
     .form-area
       .list
         .list-header
@@ -25,20 +25,20 @@
           .command
             .icon-delete(@click="deleteListItem(index)")
         .list-command
-          .form-field-button
+          .form-control--button
             button(type="button" @click="addListItem()") Ajouter
     form.form-area(name="show-form" @submit.prevent="")
-      .form-section
-        .form-section-title Titulaire
-        .form-row.form-field-text
+      .form-sector
+        .form-sector-title Titulaire
+        .form-block.form-control--text
           label(for="name") Nom du titulaire
           input(type="text" id="name" v-model="formModel.name")
-        .form-row.form-field-text
+        .form-block.form-control--text
           label(for="capacity") Qualité du titulaire
           input(type="text" id="capacity" v-model="formModel.capacity")
-        .form-row.form-field-text
+        .form-block.form-control--text
           label(for="percentage") Pourcentage
-          .form-field-percentage
+          .form-control--percentage
             input(type="text"  id="percentage" v-model="formModel.percentage")
             .unit %
       right-duration(
@@ -47,7 +47,7 @@
       right-territory(
         :model="formModel.territory"
       )
-    .form-area--command
+    .form-area--command-panel
       button(type="button" @click="requestPreviousStep()") Etape précédente
       button(type="button" @click="requestNextStep()") Réaliser une simulation
 </template>

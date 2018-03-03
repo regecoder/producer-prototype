@@ -1,5 +1,5 @@
 <template lang="pug">
-  .component
+  .view
     .name core-login-callback
 </template>
 

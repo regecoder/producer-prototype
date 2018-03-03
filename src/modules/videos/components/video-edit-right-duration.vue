@@ -1,10 +1,10 @@
 <template lang="pug">
-  .form-section
-    .form-section-title Durée
-    .form-row.form-field-text
+  .form-sector
+    .form-sector-title Durée
+    .form-block.form-control--text
       label(for="begin-date") Date de début des droits
       input(type="date" id="begin-date" v-model="model.beginDate")
-    .form-row.form-field-text
+    .form-block.form-control--text
       label(for="end-date") Date de fin des droits
       input(type="date" id="end-date" v-model="model.endDate")
 </template>

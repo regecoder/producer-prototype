@@ -8,8 +8,8 @@
 
 // 4. Spaceholders
 
-// Gouttières
-%component-area {
+// Espacement
+%view-area {
   margin-bottom: 2em;
 
   &:last-child {
@@ -19,13 +19,13 @@
 
 // 5. Sélecteurs
 
-.component {
+.view {
   // Typographie
   font-size: 1.4em;
 }
 
-.component-area--command {
-  @extend %component-area;
+.view-area--command-panel {
+  @extend %view-area;
 
   // Apparence
   display: flex;
@@ -34,7 +34,7 @@
   justify-content: space-between;
 
   button {
-    @extend %button-command;
+    @extend %button--command;
 
     &:last-of-type {
       // Position
@@ -44,8 +44,8 @@
   }
 }
 
-.component-area--header {
-  @extend %component-area;
+.view-area--header {
+  @extend %view-area;
 
   // Apparence
   display: flex;
@@ -56,17 +56,17 @@
   border-bottom: medium solid #00c0ef;
 }
 
-.component-subtitle {
+.view-subtitle {
   // Typographie
   font-size: 1.5em;
 }
 
-.component-title {
+.view-title {
   // Typographie
   font-size: 2.5em;
   text-transform: uppercase;
 }
 
-.component-area--content {
-  @extend %component-area;
+.view-area--content {
+  @extend %view-area;
 }
