@@ -12,7 +12,10 @@ const createLintingRule = () => ({
   test: /\.(js|vue)$/,
   loader: 'eslint-loader',
   enforce: 'pre',
-  include: [resolve('src'), resolve('test')],
+  include: [
+    resolve('src'),
+    resolve('test')
+  ],
   options: {
     formatter: formatter,
     emitWarning: !config.dev.showEslintErrorsInOverlay
@@ -37,7 +40,8 @@ module.exports = {
       vue$: 'vue/dist/vue.esm.js',
       App: resolve('src/app'),
       Core: resolve('src/core'),
-      Modules: resolve('src/modules')
+      Modules: resolve('src/modules'),
+      Styles: resolve('src/core/assets/styles')
     }
   },
   module: {

@@ -1,5 +1,8 @@
 @charset 'utf-8';
 
+// Ce fichier est nommé core.scss et non pas main.scss pour éviter un conflit de noms dans webpack
+// core.scss est en effet importé par les fichiers main.scss des modules
+
 // Ordre des imports:
 // 1. abstracts
 // 2. vendors
