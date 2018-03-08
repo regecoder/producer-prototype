@@ -1,0 +1,12 @@
+// 1. Variables
+// 2. Functions
+// 3. Mixins
+// 4. Spaceholders
+// 5. Sélecteurs
+
+.form-control--button {
+
+  button {
+    @extend %button--action;
+  }
+}

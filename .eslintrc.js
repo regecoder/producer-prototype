@@ -2,18 +2,18 @@
 
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
   parserOptions: {
+    parser: 'babel-eslint',
     sourceType: 'module'
   },
   env: {
     browser: true,
   },
-  extends: 'airbnb-base',
-  // required to lint *.vue files
-  plugins: [
-    'html'
+  extends: [
+    'airbnb-base',
+    'plugin:vue/recommended'
   ],
+
   // check if imports actually resolve
   settings: {
     'import/resolver': {
@@ -50,6 +50,12 @@ module.exports = {
     'import/no-dynamic-require': 0,
     'class-methods-use-this': 0,
     'func-names': 0,
-    'object-shorthand': 0
+    'object-shorthand': 0,
+    'no-prototype-builtins': 0,
+    'no-underscore-dangle': 0,
+    'import/prefer-default-export': 0,
+    'no-use-before-define': 0,
+    'no-param-reassign': ['error', { 'props': false }],
+    "space-before-function-paren": ["error", "always"]
   }
 }

@@ -1,14 +1,13 @@
 <template lang="pug">
-  #hello
-    .name {{ name }}
+  #dashboard
+    .name dashboard
 </template>
 
 <script>
 
 export default {
-  data() {
+  data () {
     return {
-      name: 'dashboard'
     };
   },
   created: function () {

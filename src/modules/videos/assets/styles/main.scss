@@ -1,0 +1,30 @@
+@charset 'utf-8';
+
+// Ordre des imports:
+// 1. abstracts
+// 2. vendors
+// 3. base
+// 4. layout
+// 5. components
+// 6. pages
+
+// 1. abstracts
+
+// 2. vendors
+
+// 3. base
+
+// 4. layout
+
+// 5. components
+
+// Importe les styles du coeur de l'application
+// Nécessite l'utilisation du paramètre includePaths dans webpack
+// pour indiquer le chemin du fichier core.scss
+@import 'core';
+
+// Video widget
+@import 'components/video-widget';
+
+// Simulateur
+@import 'components/simulator';

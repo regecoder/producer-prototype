@@ -1,0 +1,25 @@
+// sass-lint:disable property-sort-order
+
+// 1. Variables
+// 2. Functions
+// 3. Mixins
+
+// 4. Spaceholders
+
+%form-control--column {
+  // Apparence
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+%form-control--row {
+  // Apparence
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+// 5. Sélecteurs

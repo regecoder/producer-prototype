@@ -1,0 +1,18 @@
+// 1. Variables
+// 2. Functions
+// 3. Mixins
+// 4. Spaceholders
+// 5. Sélecteurs
+
+.header {
+  // sass-lint:disable-block property-sort-order
+
+  .baseline {
+    // Positionnement
+    margin-top: 0.6em;
+    // Typographie
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+  }
+}

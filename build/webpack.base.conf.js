@@ -1,23 +1,26 @@
-'use strict'
-const path = require('path')
-const utils = require('./utils')
-const config = require('../config')
-const vueLoaderConfig = require('./vue-loader.conf')
+const path = require('path');
+const utils = require('./utils');
+const config = require('../config');
+const vueLoaderConfig = require('./vue-loader.conf');
+const formatter = require('eslint-friendly-formatter');
 
 function resolve (dir) {
-  return path.join(__dirname, '..', dir)
+  return path.join(__dirname, '..', dir);
 }
 
 const createLintingRule = () => ({
   test: /\.(js|vue)$/,
   loader: 'eslint-loader',
   enforce: 'pre',
-  include: [resolve('src'), resolve('test')],
+  include: [
+    resolve('src'),
+    resolve('test')
+  ],
   options: {
-    formatter: require('eslint-friendly-formatter'),
+    formatter: formatter,
     emitWarning: !config.dev.showEslintErrorsInOverlay
   }
-})
+});
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
@@ -34,10 +37,11 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src'),
-      'Core': resolve('src/core'),
-      'Modules': resolve('src/modules'),
+      vue$: 'vue/dist/vue.esm.js',
+      App: resolve('src/app'),
+      Core: resolve('src/core'),
+      Modules: resolve('src/modules'),
+      Styles: resolve('src/core/assets/styles')
     }
   },
   module: {
@@ -91,4 +95,4 @@ module.exports = {
     tls: 'empty',
     child_process: 'empty'
   }
-}
+};

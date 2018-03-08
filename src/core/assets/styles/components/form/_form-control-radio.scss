@@ -1,0 +1,28 @@
+// 1. Variables
+// 2. Functions
+// 3. Mixins
+// 4. Spaceholders
+// 5. Sélecteurs
+
+%form-control--radio {
+  // Apparence
+  @extend %form-control--row;
+  // Dimensionnement
+  // width: 100%;
+
+  // input {
+  //   &[type='radio'] {
+  //     position: relative;
+  //     top: 0.1em;
+  //   }
+  // }
+
+  label {
+    color: #000;
+    margin-left: 0.5em;
+  }
+}
+
+.form-control--radio {
+  @extend %form-control--radio;
+}

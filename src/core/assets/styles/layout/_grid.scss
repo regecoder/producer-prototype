@@ -1,0 +1,32 @@
+// sass-lint:disable space-before-colon
+
+.layout {
+  // sass-lint:disable-block property-sort-order
+
+  // Apparence
+  display: grid;
+  // Grille
+  // grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: 1fr;
+  // Dimensionnement
+  // height: 100vh;
+  width: 100vw;
+  // Espacement vertical (header, content, footer)
+  grid-row-gap: 4vh;
+  // Marges
+  padding: 2vh 10vw 4vh;
+}
+
+// .header {
+//   grid-column-end: 12;
+//   grid-column-start: 1;
+//   grid-block-end: 1;
+//   grid-block-start: 1;
+// }
+
+// .content {
+//   grid-column-end: 12;
+//   grid-column-start: 1;
+//   grid-block-end: 2;
+//   grid-block-start: 2;
+// }

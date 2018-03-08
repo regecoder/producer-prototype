@@ -1,0 +1,12 @@
+// sass-lint:disable space-before-colon
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $base-font-family;
+  font-size  : $base-font-size;
+}

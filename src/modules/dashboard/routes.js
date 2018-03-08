@@ -1,10 +1,10 @@
-import Dashboard from './components/dashboard';
+import dashboard from './components/dashboard';
 
 export default [
   {
     path: '/dashboard',
     name: 'dashboard',
-    component: Dashboard,
+    component: dashboard,
     meta: {
       requiresAuth: true
     }

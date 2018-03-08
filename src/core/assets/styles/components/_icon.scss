@@ -1,0 +1,47 @@
+// sass-lint:disable property-sort-order
+
+// 1. Variables
+$icon-fa-css-prefix: 'fa';
+$icon-fa-map: (
+  'delete': 'times-circle'
+);
+
+// 2. Functions
+// Renvoie le nom de la classe fa
+@function get-fa-icon-name($icon-name) {
+  $icon-fa-name: $icon-name;
+  @each $item in $icon-fa-map {
+    @if $icon-name == nth($item, 1) {
+      $icon-fa-name: nth($item, 2);
+    }
+  }
+  @return $icon-fa-name;
+}
+
+// 3. Mixins
+@mixin icon($icon-name) {
+  @extend %icon;
+  $icon-fa-name: get-fa-icon-name($icon-name);
+  // sass-lint:disable-block extends-before-declarations
+  @extend .#{$icon-fa-css-prefix}-#{$icon-fa-name};
+}
+
+// 4. Spaceholders
+%icon {
+  @extend .#{$icon-fa-css-prefix};
+}
+
+// 5. Sélecteurs
+@each $item in $icon-fa-map {
+  .icon-#{nth($item, 1)} {
+    @include icon(nth($item, 1));
+  }
+}
+
+.icon-delete {
+  &:hover,
+  &:focus {
+    color: $color-icon-delete;
+    cursor: pointer;
+  }
+}

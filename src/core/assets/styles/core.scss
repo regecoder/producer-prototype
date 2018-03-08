@@ -1,0 +1,51 @@
+@charset 'utf-8';
+
+// Ce fichier est nommé core.scss et non pas main.scss pour éviter un conflit de noms dans webpack
+// core.scss est en effet importé par les fichiers main.scss des modules
+
+// Ordre des imports:
+// 1. abstracts
+// 2. vendors
+// 3. base
+// 4. layout
+// 5. components
+// 6. pages
+
+// 1. abstracts
+@import 'abstracts/variables';
+@import 'abstracts/colors';
+
+// 2. vendors
+@import 'vendors/vendor.config';
+@import 'vendors/fontawesome/scss/fontawesome';
+@import 'vendors/fontawesome/scss/fa-solid';
+
+// 3. base
+@import 'base/global';
+@import 'base/helpers';
+
+// 4. layout
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/view';
+
+// 5. components
+
+// Basics
+@import 'components/button';
+@import 'components/icon';
+
+// Lists
+@import 'components/list';
+
+// Forms
+@import 'components/form/form-control';
+@import 'components/form/form-control-text';
+@import 'components/form/form-control-percentage';
+@import 'components/form/form-control-select';
+@import 'components/form/form-control-checkbox';
+@import 'components/form/form-control-radio';
+@import 'components/form/form-control-button';
+@import 'components/form/form-control-command';
+@import 'components/form/form-block-checkbox';
+@import 'components/form/form-view';
