@@ -1,0 +1,24 @@
+{
+  "Statement": [
+    {
+      "Action": [
+        "s3:PutObject"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::scenso-producer-web/*",
+      "Principal": {
+        "AWS": [
+          "arn:aws:iam::651600485603:user/regecoder"
+        ]
+      }
+    },
+    {
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::scenso-producer-web/*",
+      "Principal": "*"
+    }
+  ]
+}

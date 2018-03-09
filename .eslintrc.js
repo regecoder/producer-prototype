@@ -56,6 +56,7 @@ module.exports = {
     'import/prefer-default-export': 0,
     'no-use-before-define': 0,
     'no-param-reassign': ['error', { 'props': false }],
-    "space-before-function-paren": ["error", "always"]
+    "space-before-function-paren": ['error', 'always'],
+    'no-plusplus': ['error', { 'allowForLoopAfterthoughts': true }]
   }
 }
