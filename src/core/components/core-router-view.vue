@@ -7,9 +7,6 @@ export default {
   data () {
     return {
     };
-  },
-  created: function () {
-    document.title = 'Scenso Producer';
   }
 };
 </script>
