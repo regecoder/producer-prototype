@@ -1,4 +1,4 @@
-# Scenso Producer web
+# Scenso Producer webapp
 
 ## Build Setup
 

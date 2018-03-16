@@ -1,7 +1,7 @@
 {
-  "name": "web",
+  "name": "scenso-producer-webapp",
   "version": "0.1.0",
-  "description": "A Vue.js project",
+  "description": "Scenso Producer webapp",
   "author": "regecoder <regecoder@gmail.com>",
   "private": true,
   "scripts": {
