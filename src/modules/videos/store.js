@@ -16,13 +16,18 @@ export default {
     },
     authorRights: []
   },
-  getters: {
-  },
+  getters: {},
   mutations: {
-    setVideoData: (state, payload) => {
-      state[payload.key] = payload.value;
+    setMediaLoaded: (state, mediaLoaded) => {
+      state.mediaLoaded = mediaLoaded;
+    },
+    setVideoData: (state, data) => {
+      state[data.key] = data.value;
     }
   },
   actions: {
+    initialize: ({ commit }) => {
+      commit('setMediaLoaded', false);
+    }
   }
 };

@@ -4,12 +4,15 @@ export default {
     handlePreviousStep
   },
   computed: {
-    model: function () {
-      return this.$store.state.video[this.step.storeKey];
+    // Alias
+    localStore: function () {
+      return this.$store.state.video;
     },
-
+    model: function () {
+      return this.localStore[this.step.storeKey];
+    },
     showTitle: function () {
-      let title = this.$store.state.video.work.show.title;
+      let title = this.localStore.work.show.title;
       if (!title) {
         title = 'Nouvelle oeuvre';
       }

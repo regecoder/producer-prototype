@@ -43,7 +43,8 @@
 </template>
 
 <script>
-import videoEditMixin from 'Modules/videos/mixins/video-edit.mixin';
+import initMedia from '../data.service';
+import videoEditMixin from '../mixins/video-edit.mixin';
 
 export default {
   mixins: [
@@ -56,6 +57,9 @@ export default {
         storeKey: 'work'
       }
     };
+  },
+  created: function () {
+    initMedia();
   }
 };
 </script>
