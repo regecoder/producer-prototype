@@ -8,8 +8,6 @@
 
 FROM node:8.6.0-alpine
 
-MAINTAINER rege <regecoder@gmail.com>
-
 ARG WEB_DIR=/srv/web
 
 WORKDIR $WEB_DIR

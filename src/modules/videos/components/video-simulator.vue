@@ -23,6 +23,9 @@
               .button--action(@click="addView(1, 100)") + 100
               .button--action(@click="addView(1, 1000)") + 1000
             .simulator-subscription-comment Forfait B to B à 40€
+          .simulator-blockchain
+              .button--action(@click="countViews()") Blockchain
+              div {{ viewCounter}}
         .simulator-dashboard
           .simulator-total
             .block
@@ -57,6 +60,8 @@
 </template>
 
 <script>
+import { blockchainService } from 'Core/services';
+
 import {
   authorSocieties,
   sharingCategory
@@ -94,7 +99,8 @@ const subscriptions = [
 export default {
   data () {
     return {
-      dashboard
+      dashboard,
+      viewCounter: 0
     };
   },
 
@@ -110,13 +116,25 @@ export default {
 
   created: function () {
     initializeSharing(this);
+    blockchainService.initialize();
   },
 
   methods: {
 
-    addView: function (subscriptionIndex, increment) {
+    addView: function (subscriptionIndex, numberViews) {
       const subscriptionName = subscriptions[subscriptionIndex].name;
-      this.dashboard.views[subscriptionName] += increment;
+      this.dashboard.views[subscriptionName] += numberViews;
+      blockchainService.addView(numberViews);
+    },
+
+    countViews: async function () {
+      this.viewCounter = await blockchainService.countViews();
+// .then((data) => {
+        //   // console.log(response);
+        //   // const data = JSON.parse(JSON.stringify(response));
+        //   // console.log(data);
+        //   this.viewCounter = data.views;
+        // });
     },
 
     exit: function () {
